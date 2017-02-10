@@ -20,6 +20,26 @@ body {
     position: absolute;
 }
 
+#topBar h1 {
+    font-size: 23px;
+    color: #ffffff;
+    margin-top: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'nasalizationregular', sans-serif;
+}
+
+#topBar h2 {
+    font-size: 35px;
+    color: #00ffd2;
+    margin-top: 55px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'rainfallblack', sans-serif;
+}
+
 .scoreArea {
     height: 100px;
     position: absolute;
@@ -28,11 +48,11 @@ body {
 }
 
 #game {
-    height: 950px;
+    height: 970px;
     width: 1900px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(248,248,248,0.5);
+//    background-color: rgba(248,248,248,0.5);
     top: 100px;
     position: absolute;
     clip: auto;
@@ -52,8 +72,16 @@ body {
 }
 
 #footerBar {
-    height: 380px;
+    height: 370px;
+    width: 100%;
     position: absolute;
     bottom: 0;
+}
+
+.charlie {
+    height: 170px;
+    left: 650px;
+    top: 150px;
+    position: absolute;
 }
 
