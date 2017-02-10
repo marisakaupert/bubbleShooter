@@ -22,7 +22,7 @@ var paths = {
 
 gulp.task('serveprod', function() {
   connect.server({
-    root: '\',
+    root: './',
     port: process.env.PORT || 5000, // localhost:5000
     livereload: true
   });
