@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Bubble Shooter</title>
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <script src="js/modernizr.js"></script>
 </head>
+
 <body>
-   
-   <div id="page">
-       <div id="topBar"></div>
-       <div id="game"></div>
-       <div id="footerBar"></div>
-   </div>
-    
+
+    <div id="page">
+        <img class="background" src="assets/images/background.png">
+        <div id="topBar">
+            <img class="scoreArea" src="assets/images/scoreBar.svg">
+            <h1>High Score:</h1>
+            <h2>0</h2>
+        </div>
+        <div id="game">
+            <img class="dividingBar" src="assets/images/workingLayoutGameOverLines.svg">
+            <img class="shooter" src="assets/images/workingLayoutCannon.svg">
+
+        </div>
+        <div id="footerBar">
+        </div>
+
+    </div>
+
 </body>
+
 </html>

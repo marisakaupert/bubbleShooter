@@ -2,13 +2,58 @@ body {
     margin: 0;
 }
 
+#topBar {
+    height: 100px;
+}
+
+
 #page {
     position: absolute;
     top: 0;
     left: 0;
-    height: 1000px;
-    width: 1000px;
-    background-image: url();
+    height: 1080px;
+    width: 1920px;
 }
 
-#topBar {}
+.background {
+    z-index: -1;
+    position: absolute;
+}
+
+.scoreArea {
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#game {
+    height: 950px;
+    width: 1900px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(248,248,248,0.5);
+    top: 100px;
+    position: absolute;
+    clip: auto;
+    overflow: hidden;
+}
+
+.dividingBar {
+    width: 70px;
+}
+
+.shooter {
+    position: absolute;
+    height: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+
+#footerBar {
+    height: 380px;
+    position: absolute;
+    bottom: 0;
+}
+
