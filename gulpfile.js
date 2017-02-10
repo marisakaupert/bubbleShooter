@@ -19,6 +19,15 @@ var paths = {
 	}
 };
 
+gulp.task('serveprod', function() {
+  connect.server({
+    root: [your_project_path],
+    port: process.env.PORT || 5000, // localhost:5000
+    livereload: false
+  });
+});
+
+
 gulp.task('scripts', function() {
 	console.log('Concatenating Scripts');
 	return gulp.src(paths.frontend.js.src)
@@ -39,7 +48,7 @@ gulp.task('styles', function(){
 		.pipe(gulp.dest(paths.frontend.sass.dest));
 });
 
-gulp.task('default', ['styles', 'scripts'], function(){
+gulp.task('default', ['serveprod', 'styles', 'scripts'], function(){
 	gulp.watch(paths.frontend.sass.src, ['styles']);
 	gulp.watch(paths.frontend.js.src, ['scripts']);
 });
