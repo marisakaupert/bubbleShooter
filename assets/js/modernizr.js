@@ -1,21 +1,27 @@
 /*! modernizr 3.3.1 (Custom Build) | MIT *
- * https://modernizr.com/download/?-audio-canvas-csstransitions-prefixed-prefixedcss-setclasses !*/
+ * https://modernizr.com/download/?-audio-canvas-csstransitions-objectfit-prefixed-prefixedcss-setclasses !*/
 ! function (e, n, t) {
     function r(e, n) {
         return typeof e === n
     }
 
     function o() {
-        var e, n, t, o, a, s, i;
+        var e, n, t, o, a, i, s;
         for (var l in C)
             if (C.hasOwnProperty(l)) {
                 if (e = [], n = C[l], n.name && (e.push(n.name.toLowerCase()), n.options && n.options.aliases && n.options.aliases.length))
                     for (t = 0; t < n.options.aliases.length; t++) e.push(n.options.aliases[t].toLowerCase());
-                for (o = r(n.fn, "function") ? n.fn() : n.fn, a = 0; a < e.length; a++) s = e[a], i = s.split("."), 1 === i.length ? Modernizr[i[0]] = o : (!Modernizr[i[0]] || Modernizr[i[0]] instanceof Boolean || (Modernizr[i[0]] = new Boolean(Modernizr[i[0]])), Modernizr[i[0]][i[1]] = o), h.push((o ? "" : "no-") + i.join("-"))
+                for (o = r(n.fn, "function") ? n.fn() : n.fn, a = 0; a < e.length; a++) i = e[a], s = i.split("."), 1 === s.length ? Modernizr[s[0]] = o : (!Modernizr[s[0]] || Modernizr[s[0]] instanceof Boolean || (Modernizr[s[0]] = new Boolean(Modernizr[s[0]])), Modernizr[s[0]][s[1]] = o), h.push((o ? "" : "no-") + s.join("-"))
             }
     }
 
     function a(e) {
+        return e.replace(/([a-z])-([a-z])/g, function (e, n, t) {
+            return n + t.toUpperCase()
+        }).replace(/^-/, "")
+    }
+
+    function i(e) {
         var n = x.className,
             t = Modernizr._config.classPrefix || "";
         if (_ && (n = n.baseVal), Modernizr._config.enableJSClass) {
@@ -26,12 +32,6 @@
     }
 
     function s(e) {
-        return e.replace(/([a-z])-([a-z])/g, function (e, n, t) {
-            return n + t.toUpperCase()
-        }).replace(/^-/, "")
-    }
-
-    function i(e) {
         return e.replace(/([A-Z])/g, function (e, n) {
             return "-" + n.toLowerCase()
         }).replace(/^ms-/, "-ms-")
@@ -64,23 +64,23 @@
     }
 
     function d(e, t, r, o) {
-        var a, s, i, u, f = "modernizr",
+        var a, i, s, u, f = "modernizr",
             c = l("div"),
             d = p();
         if (parseInt(r, 10))
-            for (; r--;) i = l("div"), i.id = o ? o[r] : f + (r + 1), c.appendChild(i);
-        return a = l("style"), a.type = "text/css", a.id = "s" + f, (d.fake ? d : c).appendChild(a), d.appendChild(c), a.styleSheet ? a.styleSheet.cssText = e : a.appendChild(n.createTextNode(e)), c.id = f, d.fake && (d.style.background = "", d.style.overflow = "hidden", u = x.style.overflow, x.style.overflow = "hidden", x.appendChild(d)), s = t(c, e), d.fake ? (d.parentNode.removeChild(d), x.style.overflow = u, x.offsetHeight) : c.parentNode.removeChild(c), !!s
+            for (; r--;) s = l("div"), s.id = o ? o[r] : f + (r + 1), c.appendChild(s);
+        return a = l("style"), a.type = "text/css", a.id = "s" + f, (d.fake ? d : c).appendChild(a), d.appendChild(c), a.styleSheet ? a.styleSheet.cssText = e : a.appendChild(n.createTextNode(e)), c.id = f, d.fake && (d.style.background = "", d.style.overflow = "hidden", u = x.style.overflow, x.style.overflow = "hidden", x.appendChild(d)), i = t(c, e), d.fake ? (d.parentNode.removeChild(d), x.style.overflow = u, x.offsetHeight) : c.parentNode.removeChild(c), !!i
     }
 
     function y(n, r) {
         var o = n.length;
         if ("CSS" in e && "supports" in e.CSS) {
             for (; o--;)
-                if (e.CSS.supports(i(n[o]), r)) return !0;
+                if (e.CSS.supports(s(n[o]), r)) return !0;
             return !1
         }
         if ("CSSSupportsRule" in e) {
-            for (var a = []; o--;) a.push("(" + i(n[o]) + ":" + r + ")");
+            for (var a = []; o--;) a.push("(" + s(n[o]) + ":" + r + ")");
             return a = a.join(" or "), d("@supports (" + a + ") { #modernizr { position: absolute; } }", function (e) {
                 return "absolute" == getComputedStyle(e, null).position
             })
@@ -88,30 +88,30 @@
         return t
     }
 
-    function m(e, n, o, a) {
-        function i() {
-            c && (delete z.style, delete z.modElem)
+    function m(e, n, o, i) {
+        function s() {
+            c && (delete j.style, delete j.modElem)
         }
-        if (a = r(a, "undefined") ? !1 : a, !r(o, "undefined")) {
+        if (i = r(i, "undefined") ? !1 : i, !r(o, "undefined")) {
             var f = y(e, o);
             if (!r(f, "undefined")) return f
         }
-        for (var c, p, d, m, v, g = ["modernizr", "tspan", "samp"]; !z.style && g.length;) c = !0, z.modElem = l(g.shift()), z.style = z.modElem.style;
+        for (var c, p, d, m, v, g = ["modernizr", "tspan", "samp"]; !j.style && g.length;) c = !0, j.modElem = l(g.shift()), j.style = j.modElem.style;
         for (d = e.length, p = 0; d > p; p++)
-            if (m = e[p], v = z.style[m], u(m, "-") && (m = s(m)), z.style[m] !== t) {
-                if (a || r(o, "undefined")) return i(), "pfx" == n ? m : !0;
+            if (m = e[p], v = j.style[m], u(m, "-") && (m = a(m)), j.style[m] !== t) {
+                if (i || r(o, "undefined")) return s(), "pfx" == n ? m : !0;
                 try {
-                    z.style[m] = o
+                    j.style[m] = o
                 } catch (h) {}
-                if (z.style[m] != v) return i(), "pfx" == n ? m : !0
+                if (j.style[m] != v) return s(), "pfx" == n ? m : !0
             }
-        return i(), !1
+        return s(), !1
     }
 
     function v(e, n, t, o, a) {
-        var s = e.charAt(0).toUpperCase() + e.slice(1),
-            i = (e + " " + P.join(s + " ") + s).split(" ");
-        return r(n, "string") || r(n, "undefined") ? m(i, n, o, a) : (i = (e + " " + b.join(s + " ") + s).split(" "), c(i, n, t))
+        var i = e.charAt(0).toUpperCase() + e.slice(1),
+            s = (e + " " + T.join(i + " ") + i).split(" ");
+        return r(n, "string") || r(n, "undefined") ? m(s, n, o, a) : (s = (e + " " + b.join(i + " ") + i).split(" "), c(s, n, t))
     }
 
     function g(e, n, r) {
@@ -164,22 +164,22 @@
         return !(!e.getContext || !e.getContext("2d"))
     });
     var S = "Moz O ms Webkit",
-        P = w._config.usePrefixes ? S.split(" ") : [];
-    w._cssomPrefixes = P;
-    var T = function (n) {
+        T = w._config.usePrefixes ? S.split(" ") : [];
+    w._cssomPrefixes = T;
+    var P = function (n) {
         var r, o = prefixes.length,
             a = e.CSSRule;
         if ("undefined" == typeof a) return t;
         if (!n) return !1;
         if (n = n.replace(/^@/, ""), r = n.replace(/-/g, "_").toUpperCase() + "_RULE", r in a) return "@" + n;
-        for (var s = 0; o > s; s++) {
-            var i = prefixes[s],
-                l = i.toUpperCase() + "_" + r;
-            if (l in a) return "@-" + i.toLowerCase() + "-" + n
+        for (var i = 0; o > i; i++) {
+            var s = prefixes[i],
+                l = s.toUpperCase() + "_" + r;
+            if (l in a) return "@-" + s.toLowerCase() + "-" + n
         }
         return !1
     };
-    w.atRule = T;
+    w.atRule = P;
     var b = w._config.usePrefixes ? S.toLowerCase().split(" ") : [];
     w._domPrefixes = b;
     var E = {
@@ -188,20 +188,22 @@
     Modernizr._q.push(function () {
         delete E.elem
     });
-    var z = {
+    var j = {
         style: E.elem.style
     };
     Modernizr._q.unshift(function () {
-        delete z.style
+        delete j.style
     }), w.testAllProps = v;
-    var N = w.prefixed = function (e, n, t) {
-        return 0 === e.indexOf("@") ? T(e) : (-1 != e.indexOf("-") && (e = s(e)), n ? v(e, n, t) : v(e, "pfx"))
+    var z = w.prefixed = function (e, n, t) {
+        return 0 === e.indexOf("@") ? P(e) : (-1 != e.indexOf("-") && (e = a(e)), n ? v(e, n, t) : v(e, "pfx"))
     };
     w.prefixedCSS = function (e) {
-        var n = N(e);
-        return n && i(n)
+        var n = z(e);
+        return n && s(n)
     };
-    w.testAllProps = g, Modernizr.addTest("csstransitions", g("transition", "all", !0)), o(), a(h), delete w.addTest, delete w.addAsyncTest;
-    for (var $ = 0; $ < Modernizr._q.length; $++) Modernizr._q[$]();
+    Modernizr.addTest("objectfit", !!z("objectFit"), {
+        aliases: ["object-fit"]
+    }), w.testAllProps = g, Modernizr.addTest("csstransitions", g("transition", "all", !0)), o(), i(h), delete w.addTest, delete w.addAsyncTest;
+    for (var N = 0; N < Modernizr._q.length; N++) Modernizr._q[N]();
     e.Modernizr = Modernizr
 }(window, document);
