@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
+var connect = require('gulp-connect');
 var uglify = require('gulp-uglify');
 var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
@@ -21,9 +22,9 @@ var paths = {
 
 gulp.task('serveprod', function() {
   connect.server({
-    root: [your_project_path],
+    root: [__dirname],
     port: process.env.PORT || 5000, // localhost:5000
-    livereload: false
+    livereload: true
   });
 });
 
