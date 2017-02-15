@@ -60,7 +60,11 @@ body {
 }
 
 .dividingBar {
-    width: 70px;
+    position: absolute;
+    width: 100%;
+    top: 630px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .shooter {

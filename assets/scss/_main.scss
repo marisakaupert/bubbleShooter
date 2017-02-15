@@ -1,0 +1,34 @@
+#page {
+    position: absolute;
+    height: 1080px;
+    width: 1920px;
+    background-color: rgba(205,21,63,0.2);
+}
+
+.dialog {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 530px;
+    width: 700px;
+    text-align: center;
+    border: 2px solid rgba(205, 21,63,1);
+    border-radius: 25px;
+    background-color: rgba(0, 1, 5, 0.7);
+}
+
+.dialog h1 {
+    font-size: 50px;
+    font-family: 'rainfallblack', sans-serif;
+    color: rgba(205, 21,63,1);
+    position: relative;
+}
+
+.dialog h2 {
+    font-size: 40px;
+    font-family: 'rainfallblack', sans-serif;
+    color: rgba(2,255,210,1);
+    position: relative;
+    display: block;
+}
