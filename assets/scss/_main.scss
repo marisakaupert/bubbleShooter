@@ -1,34 +1,51 @@
-#page {
-    position: absolute;
-    height: 1080px;
-    width: 1920px;
-    background-color: rgba(205,21,63,0.2);
-}
-
-.dialog {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 530px;
-    width: 700px;
-    text-align: center;
-    border: 2px solid rgba(205, 21,63,1);
-    border-radius: 25px;
-    background-color: rgba(0, 1, 5, 0.7);
-}
-
-.dialog h1 {
-    font-size: 50px;
-    font-family: 'rainfallblack', sans-serif;
-    color: rgba(205, 21,63,1);
-    position: relative;
-}
-
-.dialog h2 {
-    font-size: 40px;
-    font-family: 'rainfallblack', sans-serif;
-    color: rgba(2,255,210,1);
-    position: relative;
-    display: block;
-}
+//.dialog {
+//    position: absolute;
+//    z-index: 200;
+//    top: 17%;
+//    left: 50%;
+//    transform: translateX(-50%);
+//    height: 560px;
+//    width: 890px;
+//    text-align: center;
+//    border: 2px solid rgba(205, 21, 63, 1);
+//    border-radius: 65px;
+//    background-color: rgba(0, 1, 5, 0.7);
+//    padding: 30px;
+//}
+//
+//.dialog h1 {
+//    font-size: 140px;
+//    margin-top: 60px;
+//    font-family: 'rainfallblack', sans-serif;
+//    color: rgba(205, 21, 63, 1);
+//    position: relative;
+//}
+//
+//.dialog h2 {
+//    font-size: 94px;
+//    font-family: 'rainfallblack', sans-serif;
+//    color: rgba(2, 255, 210, 1);
+//    position: relative;
+//    display: block;
+//}
+//
+//.playButton {
+//    background-color: rgba(253, 255, 2, 1);
+//    width: 30%;
+//    margin: 55px auto;
+//    border-radius: 15px;
+//    padding-top: 25px;
+//    padding-bottom: 30px;
+//    border: 1px solid rgba(254, 254, 254, 1);
+//}
+//
+//.playButton h1 {
+//    font-family: 'nasalizationregular', sans-serif;
+//    font-size: 40px;
+//    margin-top: 0;
+//}
+//
+//.playButton:hover {
+//    background-color: rgba();
+//    transition: .3s background-color;
+//}
