@@ -8,6 +8,6 @@ BubbleShoot.Game = (function ($) {
         $(".playButton").unbind('click');
         BubbleShoot.ui.hideDialog();
     };
-};
+}
 return Game;
 })(jQuery);
