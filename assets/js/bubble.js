@@ -11,8 +11,38 @@ BubbleShoot.Bubble = (function ($) {
         this.getColumn = function () {
             return column;
         };
+        this.setColumn = function (columnIn) {
+            column = columnIn;
+        };
         this.getRow = function () {
             return row;
+        };
+        this.setRow = function (rowIn) {
+            row = rowIn;
+        };
+        this.getCoordinates = function () {
+            var coordinates = {
+                left: that.getColumn() * BubbleShoot.ui.BUBBLE_DIMENSIONS / 2 + BubbleShoot.ui.BUBBLE_DIMENSIONS / 2,
+                top: that.getRow() * BubbleShoot.ui.ROW_HEIGHT + BubbleShoot.ui.BUBBLE_DIMENSIONS / 2
+            };
+            return coordinates;
+        }
+        this.animatePop = function () {
+            var top = type * that.getSprite().height();
+            this.getSprite().css("transform", "rotate(" + Math.random() * 360 + ")deg");
+            setTimeout(function () {
+                that.getSprite().css("background-position", "-50px -" + top + "px");
+            }, 125);
+            setTimeout(function () {
+                that.getSprite().css("background-position", "-100px -" + top + "px");
+            }, 150);
+            setTimeout(function () {
+                that.getSprite().css("background-position", "-150px -" + top + "px");
+            }, 175);
+            setTimeout(function () {
+                that.getSprite().remove();
+            }, 200);
+
         };
     };
     Bubble.create = function (rowNumber, columnNumber, type) {

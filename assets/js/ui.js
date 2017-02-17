@@ -26,7 +26,8 @@ BubbleShoot.ui = (function ($) {
             var bubbleCoordinates = ui.getBubbleCoordinates(bubble);
             var gameCoordinates = $("#game").position();
             var boardLeft = 120;
-            var angle = Math.atan((mouseCoordinates.x - bubbleCoordinates.left - boardLeft) / (bubbleCoordinates.top + gameCoordinates.top - mouseCoordinates.y));
+            var angle = Math.atan((mouseCoordinates.x - bubbleCoordinates.left - boardLeft) /
+                (bubbleCoordinates.top + gameCoordinates.top - mouseCoordinates.y));
             if (mouseCoordinates.y > bubbleCoordinates.top + gameCoordinates.top) {
                 angle += Math.PI;
             }
@@ -38,21 +39,30 @@ BubbleShoot.ui = (function ($) {
                 top: coordinates.y - ui.BUBBLE_DIMENSIONS / 2
             }, {
                 duration: duration,
-                easing: "linear"
+                easing: "linear",
+                complete: function () {
+                    if (bubble.getRow() !== null) {
+                        bubble.getSprite().css({
+                            left: bubble.getCoordinates().left - ui.BUBBLE_DIMENSIONS / 2,
+                            top: bubble.getCoordinates().top - ui.BUBBLE_DIMENSIONS / 2
+                        });
+                    };
+
+                }
             });
         },
-        drawboard: function(board){
+        drawBoard: function (board) {
             var rows = board.getRows();
             var gameArea = $("#board");
-            for (var i =0; i < rows.length; i++){
-                var rows = rows[i];
-                for(var j=0; j <row.length;j++){
+            for (var i = 0; i < rows.length; i++) {
+                var row = rows[i];
+                for (var j = 0; j < row.length; j++) {
                     var bubble = row[j];
-                    if(bubble){
+                    if (bubble) {
                         var sprite = bubble.getSprite();
                         gameArea.append(sprite);
-                        var left = j * ui.BUBBLE_DIMENSIONS/2;
-                        var top - * ui.ROW_HEIGHT;
+                        var left = j * ui.BUBBLE_DIMENSIONS / 2;
+                        var top = i * ui.ROW_HEIGHT;
                         sprite.css({
                             left: left,
                             top: top
@@ -60,10 +70,11 @@ BubbleShoot.ui = (function ($) {
                     };
                 };
             };
-        };
+        },
+        drawBubblesRemaining: function (numberOfBubbles) {
+            $("#bubblesRemaining").text(numberOfBubbles);
+        }
     };
     return ui;
 })(jQuery);
 
-var testGame = new BubbleShoot.Game();
-testGame.init();
