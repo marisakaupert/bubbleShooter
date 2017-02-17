@@ -37,6 +37,9 @@ BubbleShoot.Game = (function ($) {
                 var group = board.getGroup(currentBubble, {});
                 if (group.list.length >= 3) {
                     popBubbles(group.list, duration);
+                    var orphans = board.findOrphans();
+                    var delay = duration + 200 + 30 * group.list.length;
+                    dropBubbles(orphans,delay);
                 }
             } else {
                 var distanceX = Math.sin(angle) * distance;
@@ -59,9 +62,23 @@ BubbleShoot.Game = (function ($) {
                 }, delay);
                 board.popBubbleAt(this.getRow(), this.getColumn());
                 setTimeout(function(){
+                    bubble.getSprite().kaboom();
+                })
+                setTimeout(function(){
                     bubble.getSprite().remove();
                 }, delay + 200);
                 delay += 60;
+            });
+        };
+        var dropBubbles = function(bubbles,delay){
+            $.each(bubbles,function(){
+                var bubble = this;
+                board.popBubbleAt(bubble.getRow(),bubble.getColumn());
+                setTimeout(function(){
+                    bubble.getSprite().animate({
+                        top : 1000
+                    }, 1000);
+                },delay);
             });
         };
     };

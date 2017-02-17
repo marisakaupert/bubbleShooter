@@ -43,7 +43,7 @@ BubbleShoot.Board = (function($) {
                     };
                     return bubbles;
                 };
-                this.getGroup = function(bubble,found){
+                this.getGroup = function(bubble,found,differentColor){
                     var currentRow = bubble.getRow();
                     if(!found[currentRow]) {
                         found[currentRow] = {};
@@ -61,7 +61,7 @@ BubbleShoot.Board = (function($) {
                     for(var i=0;i<surrounding.length;i++){
                         var bubbleAt = surrounding[i];
                         if(bubbleAt.getType() == bubble.getType() || differentColor){
-                            found = that.getGroup(bubbleAt,found, differentColor);
+                            found = that.getGroup(bubbleAt,found,differentColor);
                         };
                     };
                     return found;
@@ -87,7 +87,7 @@ BubbleShoot.Board = (function($) {
                         };
                     };
                     var orphaned = [];
-                    for(var i=0;i<rows[i].length;i++){
+                    for(var i=0;i<rows.length;i++){
                         for(var j=0;j<rows[i].length;j++){
                             var bubble = that.getBubbleAt(i,j);
                             if(bubble && !connected[i][j]){
