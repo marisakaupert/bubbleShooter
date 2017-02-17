@@ -1,51 +1,203 @@
-//.dialog {
+body {
+    margin: 0;
+}
+
+#topBar {
+    height: 100px;
+}
+
+#page {
+    position: absolute;
+    background-color: rgba(205, 21, 63, 0.2);
+    top: 0;
+    left: 0;
+    height: 1080px;
+    width: 1920px;
+}
+
+#board {
+    position: absolute;
+    top: 0;
+    height: 670px;
+    width: 1920px;
+//    background-color: rgba(248,248,248,0.5);
+
+}
+
+.background {
+    z-index: -1;
+    position: absolute;
+}
+
+#topBar h1 {
+    font-size: 23px;
+    color: #ffffff;
+    margin-top: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'nasalizationregular', sans-serif;
+}
+
+#topBar h2 {
+    font-size: 35px;
+    color: #00ffd2;
+    margin-top: 55px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'rainfallblack', sans-serif;
+}
+
+.scoreArea {
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#game {
+    height: 970px;
+    width: 1900px;
+    left: 50%;
+    transform: translateX(-50%);
+    //    background-color: rgba(248,248,248,0.5);
+    top: 100px;
+    position: absolute;
+    clip: auto;
+    overflow: hidden;
+}
+
+.dividingBar {
+    position: absolute;
+    width: 100%;
+    top: 630px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.shooter {
+    position: absolute;
+    height: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+}
+
+#footerBar {
+    height: 370px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.charlie {
+    height: 170px;
+    left: 650px;
+    top: 150px;
+    position: absolute;
+}
+
+//#spaceship {
+//    height: 170px;
+//    left: 650px;
+//    top: 150px;
 //    position: absolute;
-//    z-index: 200;
-//    top: 17%;
-//    left: 50%;
-//    transform: translateX(-50%);
-//    height: 560px;
-//    width: 890px;
-//    text-align: center;
-//    border: 2px solid rgba(205, 21, 63, 1);
-//    border-radius: 65px;
-//    background-color: rgba(0, 1, 5, 0.7);
-//    padding: 30px;
+//    animation: float 3s infinite;
+//}
+//#leftFire {
+//    height: 170px;
+//    left: 650px;
+//    top: 150px;
+//    position: absolute;
 //}
 //
-//.dialog h1 {
-//    font-size: 140px;
-//    margin-top: 60px;
-//    font-family: 'rainfallblack', sans-serif;
-//    color: rgba(205, 21, 63, 1);
-//    position: relative;
+//#rightFire {
+//    height: 170px;
+//    left: 650px;
+//    top: 150px;
+//    position: absolute;
 //}
 //
-//.dialog h2 {
-//    font-size: 94px;
-//    font-family: 'rainfallblack', sans-serif;
-//    color: rgba(2, 255, 210, 1);
-//    position: relative;
-//    display: block;
+//#middleFire {
+//    height: 170px;
+//    left: 650px;
+//    top: 150px;
+//    position: absolute;
 //}
 //
-//.playButton {
-//    background-color: rgba(253, 255, 2, 1);
-//    width: 30%;
-//    margin: 55px auto;
-//    border-radius: 15px;
-//    padding-top: 25px;
-//    padding-bottom: 30px;
-//    border: 1px solid rgba(254, 254, 254, 1);
+//#shadow {
+//    height: 170px;
+//    left: 650px;
+//    top: 150px;
+//    position: absolute;
 //}
-//
-//.playButton h1 {
-//    font-family: 'nasalizationregular', sans-serif;
-//    font-size: 40px;
-//    margin-top: 0;
-//}
-//
-//.playButton:hover {
-//    background-color: rgba();
-//    transition: .3s background-color;
-//}
+@keyframes float {
+    0% {
+        top: 150px;
+    }
+    50% {
+        top: 50px;
+    }
+    100% {
+        top: 150px;
+    }
+}
+
+//START GAME SCREEN---------------------------
+.dialog {
+    position: absolute;
+    z-index: 200;
+    top: 17%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 560px;
+    width: 890px;
+    text-align: center;
+    border: 2px solid rgba(205, 21, 63, 1);
+    border-radius: 65px;
+    background-color: rgba(0, 1, 5, 0.7);
+    padding: 30px;
+}
+
+.dialog h1 {
+    font-size: 140px;
+    margin-top: 60px;
+    font-family: 'rainfallblack', sans-serif;
+    color: rgba(205, 21, 63, 1);
+    position: relative;
+}
+
+.dialog h2 {
+    font-size: 94px;
+    font-family: 'rainfallblack', sans-serif;
+    color: rgba(2, 255, 210, 1);
+    position: relative;
+    display: block;
+}
+
+.playButton {
+    background-color: rgba(253, 255, 2, 1);
+    width: 30%;
+    margin: 55px auto;
+    border-radius: 15px;
+    padding-top: 25px;
+    padding-bottom: 30px;
+    border: 1px solid rgba(254, 254, 254, 1);
+}
+
+.playButton h1 {
+    font-family: 'nasalizationregular', sans-serif;
+    font-size: 40px;
+    margin-top: 0;
+}
+
+.playButton:hover {
+    background-color: rgba(15, 78, 202, 1);
+    transition: .3s background-color;
+}
+
+.playButton h1:hover {
+    color: rgba(254, 254, 254, 1);
+    transition: .3s color;
+}
