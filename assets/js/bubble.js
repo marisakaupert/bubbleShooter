@@ -31,13 +31,13 @@ BubbleShoot.Bubble = (function ($) {
             var top = type * that.getSprite().height();
             this.getSprite().css("transform", "rotate(" + Math.random() * 360 + ")deg");
             setTimeout(function () {
-                that.getSprite().css("background-position", "-50px -" + top + "px");
+                that.getSprite().css("background-position", "-100px -" + top + "px");
             }, 125);
             setTimeout(function () {
-                that.getSprite().css("background-position", "-100px -" + top + "px");
+                that.getSprite().css("background-position", "-200px -" + top + "px");
             }, 150);
             setTimeout(function () {
-                that.getSprite().css("background-position", "-150px -" + top + "px");
+                that.getSprite().css("background-position", "-300px -" + top + "px");
             }, 175);
             setTimeout(function () {
                 that.getSprite().remove();

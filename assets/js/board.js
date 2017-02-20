@@ -1,7 +1,7 @@
 var BubbleShoot = window.BubbleShoot || {};
 BubbleShoot.Board = (function($) {
-            var NUM_ROWS = 9;
-            var NUM_COLUMNS = 83;
+            var NUM_ROWS = 5;
+            var NUM_COLUMNS = 5;
             var Board = function() {
                 var that = this;
                 var rows = createLayout();

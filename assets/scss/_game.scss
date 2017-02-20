@@ -1,8 +1,8 @@
 .bubble {
     position: absolute;
-    width: 50px;
-    height: 50px;
-    background-image: url("../images/bubbleSpriteSheet.png");
+    width: 100px;
+    height: 100px;
+    background-image: url("../images/bubbleSpriteSheet2.png");
 }
 
 .currentBubble {
@@ -17,13 +17,13 @@
 }
 
 .bubble1 {
-    background-position: 0 -50px;
-}
-
-.bubble2 {
     background-position: 0 -100px;
 }
 
+.bubble2 {
+    background-position: 0 -200px;
+}
+
 .bubble3 {
-    background-position: 0 -150px;
+    background-position: 0 -300px;
 }
