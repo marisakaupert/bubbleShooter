@@ -21,7 +21,7 @@
         });
     };
     var moveAll = function(){
-      var frameProportion = 1;
+      var frameProportion = 2;
       var stillToMove = [];
       for (var i = 0; i < toMove.length;i++){
         var obj = toMove[i];

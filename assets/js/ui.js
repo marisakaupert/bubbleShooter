@@ -25,7 +25,7 @@ BubbleShoot.ui = (function ($) {
             var mouseCoordinates = ui.getMouseCoordinates(e);
             var bubbleCoordinates = ui.getBubbleCoordinates(bubble);
             var gameCoordinates = $("#game").position();
-            var boardLeft = 120;
+            var boardLeft = 240;
             var angle = Math.atan((mouseCoordinates.x - bubbleCoordinates.left - boardLeft) /
                 (bubbleCoordinates.top + gameCoordinates.top - mouseCoordinates.y));
             if (mouseCoordinates.y > bubbleCoordinates.top + gameCoordinates.top) {

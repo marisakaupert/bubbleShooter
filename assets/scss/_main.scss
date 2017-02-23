@@ -91,47 +91,44 @@ body {
     bottom: 0;
 }
 
-.charlie {
-    height: 170px;
-    left: 650px;
-    top: 150px;
-    position: absolute;
+// .charlie {
+//     height: 170px;
+//     left: 650px;
+//     top: 150px;
+//     position: absolute;
+// }
+
+#spaceship {
+   height: 170px;
+   position: absolute;
+  //  left: 650px;
+  //  top: 150px;
+  //  animation: float 3s infinite;
+}
+#leftFire {
+   height: 170px;
+  //  left: 650px;
+  //  top: 150px;
 }
 
-//#spaceship {
-//    height: 170px;
-//    left: 650px;
-//    top: 150px;
-//    position: absolute;
-//    animation: float 3s infinite;
-//}
-//#leftFire {
-//    height: 170px;
-//    left: 650px;
-//    top: 150px;
-//    position: absolute;
-//}
-//
-//#rightFire {
-//    height: 170px;
-//    left: 650px;
-//    top: 150px;
-//    position: absolute;
-//}
-//
-//#middleFire {
-//    height: 170px;
-//    left: 650px;
-//    top: 150px;
-//    position: absolute;
-//}
-//
-//#shadow {
-//    height: 170px;
-//    left: 650px;
-//    top: 150px;
-//    position: absolute;
-//}
+#rightFire {
+   height: 170px;
+  //  left: 650px;
+  //  top: 150px;
+}
+
+#middleFire {
+   height: 170px;
+  //  left: 650px;
+  //  top: 150px;
+}
+
+#shadow {
+   height: 170px;
+  //  left: 650px;
+  //  top: 150px;
+}
+
 @keyframes float {
     0% {
         top: 150px;
@@ -151,7 +148,7 @@ body {
     color: rgba(254,254,254,1.0);
     top: 891px;
     left: 64%;
-    
+
 }
 
 //START GAME SCREEN---------------------------
@@ -204,7 +201,8 @@ body {
 
 .playButton:hover {
     background-color: rgba(15, 78, 202, 1);
-    transition: .3s background-color;
+    transform: scale(1.1);
+    transition: all .3s;
 }
 
 .playButton h1:hover {

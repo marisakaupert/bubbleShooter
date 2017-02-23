@@ -78,8 +78,12 @@ BubbleShoot.Game = (function ($) {
                                 bubble.getSprite().kaboom();
                               }, delay);
                             });
-                            return;
                         };
+
+                    // var moveCannon = function(){
+                    //
+                    // }    
+
                     };
                     return Game;
                 })(jQuery);
