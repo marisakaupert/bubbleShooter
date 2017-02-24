@@ -76,7 +76,7 @@ function onMouseMove(e) {
         if (mouseAngle > upBound)
             mouseAngle = upBound;
     } else {
-        //Right 
+        //Right
         if (mouse < leftBound || mouseAngle >= 270) {
             mouseAngle = leftBound;
         }
@@ -164,11 +164,11 @@ function circleIntersection(x1, y1, r1, x2, y2, r2) {
     var dX = x1 - x2;
     var dY = y1 - y2;
     var length = Math.sqrt(dX * dX + dY * dY);
-    
+
     if (length < r1 + r2) {
         //Circle intersect
         return true;
     }
-    
+
     return false;
 }

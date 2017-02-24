@@ -4,7 +4,7 @@ BubbleShoot.Game = (function ($) {
                 var currentBubble;
                 var board;
                 var numberOfBubbles;
-                var MAX_BUBBLES = 70;
+                var MAX_BUBBLES = 100;
                 this.init = function () {
                     $(".playButton").bind('click', startGame);
                 };
@@ -82,7 +82,7 @@ BubbleShoot.Game = (function ($) {
 
                     // var moveCannon = function(){
                     //
-                    // }    
+                    // }
 
                     };
                     return Game;
