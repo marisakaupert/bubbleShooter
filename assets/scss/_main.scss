@@ -40,7 +40,7 @@ body {
 
 #game {
     height: 970px;
-    width: 1900px;
+    width: 1700px;
     left: 50%;
     transform: translateX(-50%);
     //    background-color: rgba(248,248,248,0.5);
@@ -64,12 +64,16 @@ body {
     left: 50%;
     transform: translateX(-50%);
     bottom: 0;
+    transform-origin: center bottom;
     // animation: rotation infinite 2s;
 }
-
-#cannon {
-  transform-origin: bottom center;
-  
+.base {
+    position: absolute;
+    height: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    // animation: rotation infinite 2s;
 }
 
 @keyframes rotation {
@@ -100,7 +104,7 @@ body {
 
 .shadow {
   height: 15px;
-  left: 650px;
+  left: 645px;
   top: 310px;
   position: absolute;
 }
