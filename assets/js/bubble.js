@@ -1,5 +1,11 @@
 var BubbleShoot = window.BubbleShoot || {};
 BubbleShoot.Bubble = (function ($) {
+
+  BubbleShoot.BubbleState = {
+    CURRENT: 1,
+    ON_BOARD: 2,
+    FIRING: 3
+  }
     var Bubble = function (row, column, type, sprite) {
         var that = this;
         this.getType = function () {

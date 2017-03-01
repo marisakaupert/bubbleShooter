@@ -15,7 +15,8 @@ BubbleShoot.Game = (function ($) {
                     currentBubble = getNextBubble();
                     board = new BubbleShoot.Board();
                     BubbleShoot.ui.drawBoard(board);
-                    $("#game").bind('click', clickGameScreen);
+                    // $("#game").bind('click', clickGameScreen);
+                    rotateCannon();
                 };
                 var getNextBubble = function () {
                     var bubble = BubbleShoot.Bubble.create();
@@ -25,35 +26,43 @@ BubbleShoot.Game = (function ($) {
                     numberOfBubbles--;
                     return bubble;
                 };
-                var clickGameScreen = function (e) {
-                    var angle = BubbleShoot.ui.getBubbleAngle(currentBubble.getSprite(), e);
-                    var duration = 750;
-                    var distance = 1000;
-                    var collision = BubbleShoot.CollisionDetector.findIntersection(currentBubble, board, angle);
-                    if (collision) {
-                        var coordinates = collision.coordinates;
-                        duration = Math.round(duration * collision.distanceToCollision / distance);
-                        board.addBubble(currentBubble, coordinates);
-                        var group = board.getGroup(currentBubble, {});
-                        if (group.list.length >= 3) {
-                            popBubbles(group.list, duration);
-                            var orphans = board.findOrphans();
-                            var delay = duration + 200 + 30 * group.list.length;
-                            dropBubbles(orphans, delay);
-                        }
-                    } else {
-                        var distanceX = Math.sin(angle) * distance;
-                        var distanceY = Math.cos(angle) * distance;
-                        var bubbleCoordinates = BubbleShoot.ui.getBubbleCoordinates(currentBubble.getSprite());
-                        var coordinates = {
-                            x: bubbleCoordinates.left + distanceX,
-                            y: bubbleCoordinates.top - distanceY
-                        };
-                    };
+                // var clickGameScreen = function (e) {
+                //     var angle = BubbleShoot.ui.getBubbleAngle(currentBubble.getSprite(), e);
+                //     var duration = 750;
+                //     var distance = 1000;
+                //     var collision = BubbleShoot.CollisionDetector.findIntersection(currentBubble, board, angle);
+                //     if (collision) {
+                //         var coordinates = collision.coordinates;
+                //         duration = Math.round(duration * collision.distanceToCollision / distance);
+                //         board.addBubble(currentBubble, coordinates);
+                //         var group = board.getGroup(currentBubble, {});
+                //         if (group.list.length >= 3) {
+                //             popBubbles(group.list, duration);
+                //             var orphans = board.findOrphans();
+                //             var delay = duration + 200 + 30 * group.list.length;
+                //             dropBubbles(orphans, delay);
+                //         }
+                //     } else {
+                //         var distanceX = Math.sin(angle) * distance;
+                //         var distanceY = Math.cos(angle) * distance;
+                //         var bubbleCoordinates = BubbleShoot.ui.getBubbleCoordinates(currentBubble.getSprite());
+                //         var coordinates = {
+                //             x: bubbleCoordinates.left + distanceX,
+                //             y: bubbleCoordinates.top - distanceY
+                //         };
+                //     };
+                //
+                //     BubbleShoot.ui.fireBubble(currentBubble, coordinates, duration);
+                //     currentBubble = getNextBubble();
+                // };
 
-                    BubbleShoot.ui.fireBubble(currentBubble, coordinates, duration);
-                    currentBubble = getNextBubble();
-                };
+                var rotateCannon = function() {
+                  var degrees = 5;
+                  $("#cannon").css({
+                    "transform" : "rotate(" + degrees + "deg)"
+                  });
+                }
+
                 var popBubbles = function (bubbles, delay) {
                     $.each(bubbles, function () {
                         var bubble = this;
@@ -79,10 +88,6 @@ BubbleShoot.Game = (function ($) {
                               }, delay);
                             });
                         };
-
-                    // var moveCannon = function(){
-                    //
-                    // }
 
                     };
                     return Game;

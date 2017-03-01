@@ -34,22 +34,22 @@ BubbleShoot.ui = (function ($) {
             return angle;
         },
         fireBubble: function (bubble, coordinates, duration) {
-            bubble.getSprite().animate({
-                left: coordinates.x - ui.BUBBLE_DIMENSIONS / 2,
-                top: coordinates.y - ui.BUBBLE_DIMENSIONS / 2
-            }, {
-                duration: duration,
-                easing: "linear",
-                complete: function () {
-                    if (bubble.getRow() !== null) {
-                        bubble.getSprite().css({
-                            left: bubble.getCoordinates().left - ui.BUBBLE_DIMENSIONS / 2,
-                            top: bubble.getCoordinates().top - ui.BUBBLE_DIMENSIONS / 2
-                        });
-                    };
-
-                }
-            });
+          bubble.getSprite().animate({
+            left: coordinates.x - ui.BUBBLE_DIMENSIONS/2,
+            top: coordinates.y - ui.BUBBLE_DIMENSIONS/2
+          },
+          {
+            duration: duration,
+            easing: "linear",
+            complete: function() {
+              if (bubble.getRow() !== null) {
+                bubble.getSprite().css({
+                  left: bubble.getCoordinates().left - ui.BUBBLE_DIMENSIONS/2,
+                  top: bubble.getCoordinates().top - ui.BUBBLE_DIMENSIONS/2
+                });
+              };
+            }
+          });
         },
         drawBoard: function (board) {
             var rows = board.getRows();

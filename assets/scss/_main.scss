@@ -4,6 +4,7 @@ body {
 
 #topBar {
     height: 100px;
+    font-family:  'nasalizationregular', sans-serif;;
 }
 
 #page {
@@ -29,25 +30,6 @@ body {
     position: absolute;
 }
 
-#topBar h1 {
-    font-size: 23px;
-    color: #ffffff;
-    margin-top: 20px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'nasalizationregular', sans-serif;
-}
-
-#topBar h2 {
-    font-size: 35px;
-    color: #00ffd2;
-    margin-top: 55px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: 'rainfallblack', sans-serif;
-}
 
 .scoreArea {
     height: 100px;
@@ -82,6 +64,21 @@ body {
     left: 50%;
     transform: translateX(-50%);
     bottom: 0;
+    // animation: rotation infinite 2s;
+}
+
+#cannon {
+  transform-origin: bottom center;
+  
+}
+
+@keyframes rotation {
+  0% {
+    transform: translateX(-50%) rotate(0);
+  }
+  100% {
+    transform: translateX(-50%) rotate(100deg);
+  }
 }
 
 #footerBar {
@@ -96,48 +93,27 @@ body {
     left: 650px;
     top: 150px;
     position: absolute;
+    z-index: 10;
+    animation: float 4s infinite ease-in-out;
 }
 
-// #spaceship {
-//    height: 170px;
-//    position: absolute;
-//   //  left: 650px;
-//   //  top: 150px;
-//   //  animation: float 3s infinite;
-// }
-// #leftFire {
-//    height: 170px;
-//   //  left: 650px;
-//   //  top: 150px;
-// }
-//
-// #rightFire {
-//    height: 170px;
-//   //  left: 650px;
-//   //  top: 150px;
-// }
-//
-// #middleFire {
-//    height: 170px;
-//   //  left: 650px;
-//   //  top: 150px;
-// }
-//
-// #shadow {
-//    height: 170px;
-//   //  left: 650px;
-//   //  top: 150px;
-// }
+
+.shadow {
+  height: 15px;
+  left: 650px;
+  top: 310px;
+  position: absolute;
+}
 
 @keyframes float {
     0% {
-        top: 150px;
+        transform: translateY(0px);
     }
     50% {
-        top: 50px;
+        transform: translateY(-150px);
     }
     100% {
-        top: 150px;
+        transform: translateY(0px);
     }
 }
 
