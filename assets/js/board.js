@@ -1,7 +1,7 @@
 var BubbleShoot = window.BubbleShoot || {};
 BubbleShoot.Board = (function($) {
             var NUM_ROWS = 3;
-            var NUM_COLUMNS = 3;
+            var NUM_COLUMNS = 36;
             var Board = function() {
                 var that = this;
                 this.isEmpty = function(){
