@@ -21,7 +21,6 @@ body {
     top: 0;
     height: 780px;
     width: 1920px;
-//    background-color: rgba(248,248,248,0.5);
 
 }
 
@@ -40,10 +39,10 @@ body {
 
 #game {
     height: 970px;
-    width: 1700px;
+    width: 1900px;
     left: 50%;
     transform: translateX(-50%);
-    //    background-color: rgba(248,248,248,0.5);
+    // background-color: rgba(248,248,248,0.5);
     top: 100px;
     position: absolute;
     clip: auto;
@@ -143,7 +142,7 @@ body {
   color: #ffce00;
 }
 
-#levelComplete, #endScreen {
+#endScreen {
   display: none;
 }
 
