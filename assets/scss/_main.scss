@@ -112,71 +112,78 @@ body {
     }
 }
 
-#bubblesRemaining {
-    font-family: 'nasalizationregular', sans-serif;
-    position: absolute;
-    font-size: 50px;
-    color: rgba(254,254,254,1.0);
-    top: 891px;
-    left: 64%;
-
+#topBar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 63%;
 }
+
+#topLevelLabel, #level, #bubblesRemainingLabel, #bubblesRemaining, #topScoreLabel, #score {
+  font-family: 'nasalizationregular', sans-serif;
+  color: rgba(254,254,254,1.0);
+  font-size: 30px;
+  display: inline-block;
+  margin: 5px 30px;
+  text-align: center;
+}
+
+#level {
+  font-size: 50px;
+  color: #00ffd2;
+}
+
+#bubblesRemaining {
+  font-size: 50px;
+  color: #d13135;
+}
+
+#score {
+  font-size: 50px;
+  color: #ffce00;
+}
+
+
 
 //START GAME SCREEN---------------------------
 .dialog {
     position: absolute;
     z-index: 200;
-    top: 17%;
+    top: 15%;
     left: 50%;
-    transform: translateX(-50%);
-    height: 560px;
-    width: 890px;
+    transform: translateX(-50%) ;
+    width: 1300px;
     text-align: center;
-    border: 2px solid rgba(205, 21, 63, 1);
-    border-radius: 65px;
-    background-color: rgba(0, 1, 5, 0.7);
-    padding: 30px;
-}
 
-.dialog h1 {
-    font-size: 140px;
-    margin-top: 60px;
-    font-family: 'rainfallblack', sans-serif;
-    color: rgba(205, 21, 63, 1);
-    position: relative;
-}
-
-.dialog h2 {
-    font-size: 94px;
-    font-family: 'rainfallblack', sans-serif;
-    color: rgba(2, 255, 210, 1);
-    position: relative;
-    display: block;
 }
 
 .playButton {
     background-color: rgba(253, 255, 2, 1);
     width: 30%;
-    margin: 55px auto;
     border-radius: 15px;
     padding-top: 25px;
     padding-bottom: 30px;
     border: 1px solid rgba(254, 254, 254, 1);
+    position: absolute;;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+    transform-origin: center center;
 }
 
 .playButton h1 {
     font-family: 'nasalizationregular', sans-serif;
     font-size: 40px;
+    transform-origin: center center;
     margin-top: 0;
 }
 
 .playButton:hover {
-    background-color: rgba(15, 78, 202, 1);
-    transform: scale(1.1);
+    transform: translateX(-50%) scale(1.1);
     transition: all .3s;
 }
 
 .playButton h1:hover {
-    color: rgba(254, 254, 254, 1);
-    transition: .3s color;
+    color: #0ae5bb;
+    transition: all .3s;
 }
