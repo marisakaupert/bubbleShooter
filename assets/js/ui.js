@@ -88,10 +88,10 @@ BubbleShoot.ui = (function ($) {
           $("#game").unbind('click');
           BubbleShoot.ui.drawBubblesRemaining(0);
           if (hasWon){
-            // $("#levelComplete").show();
+            $("#levelComplete").show();
             $("#endScreen").hide();
           } else {
-            // $("#levelComplete").hide();
+            $("#levelComplete").hide();
             $("#endScreen").show();
           };
           $(".finalScore").text(score);
