@@ -8,6 +8,12 @@ BubbleShoot.ui = (function ($) {
             $(".dialog").fadeOut(300);
             $("#page").css("background-color", "rgba(205, 21, 63, 0.0)");
         },
+        drawScore : function(score){
+          $("#score").text(score);
+        },
+        drawLevel: function(level){
+          $("#level").text(level+1);
+        },
         getMouseCoordinates: function (e) {
             var coordinates = {
                 x: e.pageX,
@@ -77,6 +83,18 @@ BubbleShoot.ui = (function ($) {
         },
         drawBubblesRemaining: function (numberOfBubbles) {
             $("#bubblesRemaining").text(numberOfBubbles);
+        },
+        endGame : function(hasWon, score){
+          $("#game").unbind('click');
+          BubbleShoot.ui.drawBubblesRemaining(0);
+          if (hasWon){
+            // $("#levelComplete").show();
+            $("#endScreen").hide();
+          } else {
+            // $("#levelComplete").hide();
+            $("#endScreen").show();
+          };
+          $(".finalScore").text(score);
         }
     };
     return ui;

@@ -116,7 +116,7 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 63%;
+  width: 70%;
 }
 
 #topLevelLabel, #level, #bubblesRemainingLabel, #bubblesRemaining, #topScoreLabel, #score {
@@ -141,6 +141,10 @@ body {
 #score {
   font-size: 50px;
   color: #ffce00;
+}
+
+#levlComplete, #endScreen {
+  display: none;;
 }
 
 

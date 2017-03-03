@@ -4,6 +4,9 @@ BubbleShoot.Board = (function($) {
             var NUM_COLUMNS = 33;
             var Board = function() {
                 var that = this;
+                this.isEmpty = function(){
+                  return this.getBubbles().length == 0;
+                };
                 var rows = createLayout();
                 this.getRows = function () {
                     return rows;
