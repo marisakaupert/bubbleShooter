@@ -73,17 +73,8 @@ body {
     left: 50%;
     transform: translateX(-50%);
     bottom: 0;
-    // animation: rotation infinite 2s;
 }
 
-@keyframes rotation {
-  0% {
-    transform: translateX(-50%) rotate(0);
-  }
-  100% {
-    transform: translateX(-50%) rotate(100deg);
-  }
-}
 
 #footerBar {
     height: 370px;

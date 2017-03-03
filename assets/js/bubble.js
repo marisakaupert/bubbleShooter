@@ -4,10 +4,27 @@ BubbleShoot.Bubble = (function ($) {
   BubbleShoot.BubbleState = {
     CURRENT: 1,
     ON_BOARD: 2,
-    FIRING: 3
+    FIRING: 3,
+    POPPING: 4,
+    FALLING: 5,
+    POPPED: 6,
+    FIRED: 7,
+    FALLEN: 8
   }
     var Bubble = function (row, column, type, sprite) {
         var that = this;
+        var state;
+        var stateStart = Date.now();
+        this.getState = function(){
+          return state;
+        }
+        this.setState = function(stateIn){
+          state = stateIn;
+          stateStart = Date.now();
+        };
+        this.getTimeInState = function(){
+          return Date.now() - stateStart;
+        }
         this.getType = function () {
             return type;
         };

@@ -7,7 +7,7 @@ BubbleShoot.Game = (function ($) {
                 var MAX_BUBBLES = 100;
                 this.init = function () {
                     $(".playButton").on('click', startGame);
-                    $(window).on('mousemove', trackMouse);
+                    $(window).on('mousedown', trackMouse);
                 };
                 var trackMouse = function(e){
                   var mouseX = e.clientX;
@@ -15,16 +15,19 @@ BubbleShoot.Game = (function ($) {
                   var halfTheScreenX = $(window).width()/2;
                   var halfTheScreenY = $(window).height()/2;
                   var cannonY = $('.shooter').offset().top;
-                  var hypotenuseDistance = Math.pow(Math.pow(mouseX - halfTheScreenX, 2) + Math.pow(mouseY - cannonY, 2),0.5);
-                  var adjacentDistance = Math.pow(Math.pow(mouseY - cannonY,2),0.5);
-                  var oppositeDistance = Math.pow(Math.pow(mouseX - halfTheScreenX,2) + Math.pow(mouseY - halfTheScreenY,2), 0.5);
+                  var cannonLeft = $('.shooter').offset().left;
+                  var angle = Math.atan((mouseX - cannonLeft) /
+                      (cannonY - mouseY)) * 180/ Math.PI;
+                  if (mouseY > cannonY) {
+                      angle += 180/ Math.PI;
+                  }
 
-                  var cos = (Math.pow(adjacentDistance,2) + Math.pow(oppositeDistance,2) - Math.pow(hypotenuseDistance,2)) / (2 * adjacentDistance * oppositeDistance);
-                  var angle = Math.acos(cos) * 180 / Math.PI;
-                  console.log(angle);
+                  var bubbleDX = 810 + Math.sin(angle * Math.PI/180) * 200;
+                  var bubbleDY = 860 - Math.cos(angle * Math.PI/180) * 200;
 
 
                   rotateCannon(angle);
+                  // rotateBubble(bubbleDX, bubbleDY, angle);
 
                 }
 
@@ -35,7 +38,7 @@ BubbleShoot.Game = (function ($) {
                     currentBubble = getNextBubble();
                     board = new BubbleShoot.Board();
                     BubbleShoot.ui.drawBoard(board);
-                    $("#game").bind('click', clickGameScreen);
+                    $("#game").on('mouseup', clickGameScreen);
                 };
                 var getNextBubble = function () {
                     var bubble = BubbleShoot.Bubble.create();
@@ -76,23 +79,43 @@ BubbleShoot.Game = (function ($) {
                 };
 
                 var rotateCannon = function(degrees) {
-                  // if (degrees >= 65) {
-                  //   degrees = 65;
-                  // }
-                  // if (degrees <= -65) {
-                  //   degrees = -65;
-                  // }
+                  if (degrees >= 40) {
+                    degrees = 40;
+                  }
+                  if (degrees <= -40) {
+                    degrees = -40;
+                  }
+
                   $(".shooter").css({
                     "transform" : "translateX(-50%) rotate(" + degrees + "deg)"
                   });
+                }
 
+                var rotateBubble = function(x,y, angle) {
+                  if (angle >= 40) {
+                    x = 963;
+                    y = 731;
+                  }
+                  if (angle <= -40) {
+                    x = 623;
+                    y = 790;
+                  }
+
+                  $('.currentBubble').css({
+                    left: x,
+                    top: y
+                  });
                 }
 
                 var popBubbles = function (bubbles, delay) {
                     $.each(bubbles, function () {
                         var bubble = this;
                         setTimeout(function () {
+                          bubble.setState(BubbleShoot.BubbleState.POPPING);
                             bubble.animatePop();
+                            setTimeout(function(){
+                              bubble.setState(BubbleShoot.BubbleState.POPPED);
+                            }, 200);
                         }, delay);
                         board.popBubbleAt(this.getRow(), this.getColumn());
                         setTimeout(function () {

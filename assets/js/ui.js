@@ -34,6 +34,7 @@ BubbleShoot.ui = (function ($) {
             return angle;
         },
         fireBubble: function (bubble, coordinates, duration) {
+          bubble.setState(BubbleShoot.BubbleState.FIRING);
           bubble.getSprite().animate({
             left: coordinates.x - ui.BUBBLE_DIMENSIONS/2,
             top: coordinates.y - ui.BUBBLE_DIMENSIONS/2
@@ -47,6 +48,9 @@ BubbleShoot.ui = (function ($) {
                   left: bubble.getCoordinates().left - ui.BUBBLE_DIMENSIONS/2,
                   top: bubble.getCoordinates().top - ui.BUBBLE_DIMENSIONS/2
                 });
+                bubble.setState(BubbleShoot.BubbleState.ON_BOARD);
+              }else {
+                bubble.setState(BubbleShoot.BubbleState.FIRED);
               };
             }
           });

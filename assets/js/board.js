@@ -8,6 +8,20 @@ BubbleShoot.Board = (function($) {
                 this.getRows = function () {
                     return rows;
                 };
+                this.getBubbles = function(){
+                  var bubbles = [];
+                  var rows = this.getRows();
+                  for (var i = 0; i < rows.length; i++){
+                    var row = rows[i];
+                    for(var j=0; j < rows.length;j++){
+                      var bubble = row[j];
+                      if(bubble){
+                        bubbles.push(bubble);
+                      };
+                    };
+                  };
+                  return bubbles;
+                }
                 this.addBubble = function (bubble, coordinates) {
                     var rowNumber = Math.floor(coordinates.y / BubbleShoot.ui.ROW_HEIGHT);
                     var columnNumber = coordinates.x / BubbleShoot.ui.BUBBLE_DIMENSIONS * 2;
@@ -107,6 +121,7 @@ BubbleShoot.Board = (function($) {
                         var startColumn = i % 2 == 0 ? 1 : 0;
                         for (var j = startColumn; j < NUM_COLUMNS; j += 2) {
                             var bubble = BubbleShoot.Bubble.create(i, j);
+                            bubble.setState(BubbleShoot.BubbleState.ON_BOARD);
                             row[j] = bubble;
                         };
                         rows.push(row);
