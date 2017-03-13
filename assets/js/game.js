@@ -6,15 +6,11 @@ BubbleShoot.Game = (function ($) {
         var numberOfBubbles;
         var MAX_BUBBLES = 70;
         var POINTS_PER_BUBBLE = 50;
-//        var MAX_ROWS = 50;
+        var MAX_ROWS = 50;
         var level = 0;
         var score = 0;
         var highScore = 0;
-        var bub = $('.bubble').css({
-            left;
-        });
-        var post = bub.position();
-        
+
         this.init = function () {
             $(".playButton").bind('click', startGame);
 
@@ -53,6 +49,7 @@ BubbleShoot.Game = (function ($) {
             $("#game").on('click', clickGameScreen);
             BubbleShoot.ui.drawScore(score);
             BubbleShoot.ui.drawLevel(level);
+
         };
         var getNextBubble = function () {
             var bubble = BubbleShoot.Bubble.create();
@@ -116,6 +113,9 @@ BubbleShoot.Game = (function ($) {
             } else {
                 currentBubble = getNextBubble();
             }
+            checkToSeeIfBubblesExceedRows();
+
+
         };
 
         var rotateCannon = function (degrees) {
@@ -195,13 +195,12 @@ BubbleShoot.Game = (function ($) {
             $("#board .bubble").remove();
             BubbleShoot.ui.endGame(hasWon, score);
         };
-        
-        var checkToSeeIfBubblesOnTopOfEachOther = function(){
-//            if (post.left == 900 || post.top == 700){
-//                endGame(true, score);
-//            }
-            console.log(post.left)
-            console.log(post.top)
+
+        var checkToSeeIfBubblesExceedRows = function () {
+            var rowLength = board.findRowLength();
+            if (rowLength >= 7){
+                endGame(false, score);
+            }
         }
 
     };
