@@ -4,7 +4,8 @@ body {
 
 #topBar {
     height: 100px;
-    font-family:  'nasalizationregular', sans-serif;;
+    font-family: 'nasalizationregular', sans-serif;
+    ;
 }
 
 #page {
@@ -21,14 +22,12 @@ body {
     top: 0;
     height: 780px;
     width: 1920px;
-
 }
 
 .background {
     z-index: -1;
     position: absolute;
 }
-
 
 .scoreArea {
     height: 100px;
@@ -66,6 +65,7 @@ body {
     transform-origin: center bottom;
     // animation: rotation infinite 2s;
 }
+
 .base {
     position: absolute;
     height: 80px;
@@ -73,7 +73,6 @@ body {
     transform: translateX(-50%);
     bottom: 0;
 }
-
 
 #footerBar {
     height: 370px;
@@ -84,19 +83,20 @@ body {
 
 .charlie {
     height: 170px;
-    left: 650px;
+    left: 645px;
     top: 150px;
     position: absolute;
     z-index: 10;
     animation: float 4s infinite ease-in-out;
 }
 
-
 .shadow {
-  height: 15px;
-  left: 645px;
-  top: 310px;
-  position: absolute;
+    height: 15px;
+    left: 640px;
+    top: 310px;
+    position: absolute;
+    transform: scale(1);
+    animation: shadowMoving 4s infinite ease-in-out;
 }
 
 @keyframes float {
@@ -104,49 +104,68 @@ body {
         transform: translateY(0px);
     }
     50% {
-        transform: translateY(-150px);
+        transform: translateY(-80px);
     }
     100% {
         transform: translateY(0px);
     }
 }
 
-#topBar {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70%;
+@keyframes shadowMoving {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.15);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
-#topLevelLabel, #level, #bubblesRemainingLabel, #bubblesRemaining, #topScoreLabel, #score {
-  font-family: 'nasalizationregular', sans-serif;
-  color: rgba(254,254,254,1.0);
-  font-size: 30px;
-  display: inline-block;
-  margin: 5px 30px;
-  text-align: center;
+
+#topBar {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+}
+
+#topLevelLabel,
+#level,
+#bubblesRemainingLabel,
+#bubblesRemaining,
+#topScoreLabel,
+#score {
+    font-family: 'nasalizationregular', sans-serif;
+    color: rgba(254, 254, 254, 1.0);
+    font-size: 30px;
+    display: inline-block;
+    margin: 5px 30px;
+    text-align: center;
 }
 
 #level {
-  font-size: 50px;
-  color: #00ffd2;
+    font-size: 50px;
+    color: #00ffd2;
 }
 
 #bubblesRemaining {
-  font-size: 50px;
-  color: #d13135;
+    font-size: 50px;
+    color: #d13135;
 }
 
 #score {
-  font-size: 50px;
-  color: #ffce00;
+    font-size: 50px;
+    color: #ffce00;
 }
 
 #endScreen {
-  display: none;
+    display: none;
 }
-
-
 
 //START GAME SCREEN---------------------------
 .dialog {
@@ -154,10 +173,9 @@ body {
     z-index: 200;
     top: 15%;
     left: 50%;
-    transform: translateX(-50%) ;
+    transform: translateX(-50%);
     width: 1300px;
     text-align: center;
-
 }
 
 .playButton {
@@ -167,7 +185,8 @@ body {
     padding-top: 25px;
     padding-bottom: 30px;
     border: 1px solid rgba(254, 254, 254, 1);
-    position: absolute;;
+    position: absolute;
+    ;
     top: 65%;
     left: 50%;
     transform: translateX(-50%);
@@ -177,16 +196,12 @@ body {
 .playButton h1 {
     font-family: 'nasalizationregular', sans-serif;
     font-size: 40px;
-    transform-origin: center center;
     margin-top: 0;
 }
 
 .playButton:hover {
     transform: translateX(-50%) scale(1.1);
-    transition: all .3s;
-}
-
-.playButton h1:hover {
     color: #0ae5bb;
+    border: 1px solid #0ae5bb;
     transition: all .3s;
 }
