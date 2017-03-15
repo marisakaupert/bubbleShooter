@@ -126,7 +126,6 @@ body {
     }
 }
 
-
 #topBar {
     position: absolute;
     left: 50%;
@@ -163,12 +162,45 @@ body {
     color: #ffce00;
 }
 
+//END GAME SCREEN-----------------------------
 #endScreen {
     display: none;
+    position: absolute;
+    z-index: 200;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 1080px;
+}
+
+.finalScoreText {
+    font-family: 'nasalizationregular', sans-serif;
+    font-size: 50px;
+    color: rgba(254, 254, 254, 1);
+    position: absolute;
+    left: 37%;
+    top: 285px;
+}
+
+.scoreValue {
+    font-family: 'nasalizationregular', sans-serif;
+    font-size: 80px;
+    color: rgba(254, 254, 254, 1);
+    position: absolute;
+    left: 67%;
+    top: 372px;
+}
+
+.restart {
+    top: 65%;
+    left: 70%;
+    width: 40%;
+    transform: translateX(-50%);
 }
 
 //START GAME SCREEN---------------------------
-.dialog {
+#startGame {
     position: absolute;
     z-index: 200;
     top: 15%;
@@ -178,18 +210,20 @@ body {
     text-align: center;
 }
 
+.start {
+    width: 30%;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .playButton {
     background-color: rgba(253, 255, 2, 1);
-    width: 30%;
     border-radius: 15px;
     padding-top: 25px;
     padding-bottom: 30px;
     border: 1px solid rgba(254, 254, 254, 1);
     position: absolute;
-    ;
-    top: 65%;
-    left: 50%;
-    transform: translateX(-50%);
     transform-origin: center center;
 }
 

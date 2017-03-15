@@ -6,13 +6,13 @@ BubbleShoot.ui = (function ($) {
         init: function () {},
         hideDialog: function () {
             $(".dialog").fadeOut(300);
-            $("#page").css("background-color", "rgba(205, 21, 63, 0.0)");
+//            $("#page").css("background-color", "rgba(205, 21, 63, 0.0)");
         },
-        drawScore : function(score){
-          $("#score").text(score);
+        drawScore: function (score) {
+            $("#score").text(score);
         },
-        drawLevel: function(level){
-          $("#level").text(level+1);
+        drawLevel: function (level) {
+            $("#level").text(level + 1);
         },
         getMouseCoordinates: function (e) {
             var coordinates = {
@@ -40,26 +40,25 @@ BubbleShoot.ui = (function ($) {
             return angle;
         },
         fireBubble: function (bubble, coordinates, duration) {
-          bubble.setState(BubbleShoot.BubbleState.FIRING);
-          bubble.getSprite().animate({
-            left: coordinates.x - ui.BUBBLE_DIMENSIONS/2,
-            top: coordinates.y - ui.BUBBLE_DIMENSIONS/2
-          },
-          {
-            duration: duration,
-            easing: "linear",
-            complete: function() {
-              if (bubble.getRow() !== null) {
-                bubble.getSprite().css({
-                  left: bubble.getCoordinates().left - ui.BUBBLE_DIMENSIONS/2,
-                  top: bubble.getCoordinates().top - ui.BUBBLE_DIMENSIONS/2
-                });
-                bubble.setState(BubbleShoot.BubbleState.ON_BOARD);
-              }else {
-                bubble.setState(BubbleShoot.BubbleState.FIRED);
-              };
-            }
-          });
+            bubble.setState(BubbleShoot.BubbleState.FIRING);
+            bubble.getSprite().animate({
+                left: coordinates.x - ui.BUBBLE_DIMENSIONS / 2,
+                top: coordinates.y - ui.BUBBLE_DIMENSIONS / 2
+            }, {
+                duration: duration,
+                easing: "linear",
+                complete: function () {
+                    if (bubble.getRow() !== null) {
+                        bubble.getSprite().css({
+                            left: bubble.getCoordinates().left - ui.BUBBLE_DIMENSIONS / 2,
+                            top: bubble.getCoordinates().top - ui.BUBBLE_DIMENSIONS / 2
+                        });
+                        bubble.setState(BubbleShoot.BubbleState.ON_BOARD);
+                    } else {
+                        bubble.setState(BubbleShoot.BubbleState.FIRED);
+                    };
+                }
+            });
         },
         drawBoard: function (board) {
             var rows = board.getRows();
@@ -84,17 +83,11 @@ BubbleShoot.ui = (function ($) {
         drawBubblesRemaining: function (numberOfBubbles) {
             $("#bubblesRemaining").text(numberOfBubbles);
         },
-        endGame : function(hasWon, score){
-          $("#game").unbind('click');
-          BubbleShoot.ui.drawBubblesRemaining(0);
-          if (hasWon){
-            $("#levelComplete").show();
-            $("#endScreen").hide();
-          } else {
-            $("#levelComplete").hide();
-            $("#endScreen").show();
-          };
-          $(".finalScore").text(score);
+        endGame: function (hasWon, score) {
+            $("#game").unbind('click');
+            BubbleShoot.ui.drawBubblesRemaining(0);
+            $('#endScreen').fadeIn(300);
+            $(".scoreValue").text(score);
         }
     };
     return ui;

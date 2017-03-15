@@ -103,17 +103,16 @@ BubbleShoot.Game = (function ($) {
             };
 
             BubbleShoot.ui.fireBubble(currentBubble, coordinates, duration);
-            // if (board.getRows().length > MAX_ROWS){
-            //   endGame(false);
-            // }else
-            if (numberOfBubbles == 0) {
+            var rowLength = board.findRowLength();
+            if (rowLength >= 7) {
+                endGame(false);
+            } else if (numberOfBubbles == 0) {
                 endGame(false);
             } else if (board.isEmpty()) {
                 endGame(true);
             } else {
                 currentBubble = getNextBubble();
             }
-            checkToSeeIfBubblesExceedRows();
 
 
         };
@@ -187,21 +186,13 @@ BubbleShoot.Game = (function ($) {
         var endGame = function (hasWon) {
             if (hasWon) {
                 level++;
-            } else {
-                score = 0;
-                level = 0;
-            };
+            }
             $(".playButton").click('click', startGame);
             $("#board .bubble").remove();
             BubbleShoot.ui.endGame(hasWon, score);
+            score = 0;
+            level = 0;
         };
-
-        var checkToSeeIfBubblesExceedRows = function () {
-            var rowLength = board.findRowLength();
-            if (rowLength >= 7){
-                endGame(false, score);
-            }
-        }
 
     };
     return Game;
