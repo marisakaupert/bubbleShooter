@@ -76,13 +76,13 @@ BubbleShoot.Game = (function ($) {
             $(".playButton").unbind('click');
             numberOfBubbles = MAX_BUBBLES - level * 5;
             BubbleShoot.ui.hideDialog();
-            $(window).on('mousemove', trackMouse);
-            $(window).on('mousemove touchmove', handleMouseMovement);
+//            $(window).on('mousemove', trackMouse);
+//            $(window).on('mousemove touchmove', handleMouseMovement);
             BubbleShoot.Board.findColumnNumber;
             currentBubble = getNextBubble();
             board = new BubbleShoot.Board();
             BubbleShoot.ui.drawBoard(board);
-            $("#game").on('mouseup touchend', clickGameScreen);
+            $("#game").on('click', clickGameScreen);
             BubbleShoot.ui.drawScore(score);
             BubbleShoot.ui.drawLevel(level);
 
