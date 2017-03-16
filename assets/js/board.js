@@ -41,6 +41,7 @@ BubbleShoot.Board = (function ($) {
             rows[rowNumber][columnNumber] = bubble;
             bubble.setRow(rowNumber);
             bubble.setColumn(columnNumber);
+            
         };
         this.getBubbleAt = function (rowNumber, columnNumber) {
             if (!this.getRows()[rowNumber]) {
@@ -91,6 +92,12 @@ BubbleShoot.Board = (function ($) {
         this.findRowLength = function () {
             var rowLength = rows.length;
             return rowLength;
+        }
+        
+        this.findColumnNumber = function() {
+            var columnNumber = coordinates.x / BubbleShoot.ui.BUBBLE_DIMENSIONS * 2;
+            console.log(columnNumber);
+            return columnNumber;
         }
         
         this.findOrphans = function () {

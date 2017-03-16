@@ -51,7 +51,7 @@ BubbleShoot.Game = (function ($) {
             if (mouseX < 200) {
                 return;
             }
-            if (mouseY > 580) {
+            if (mouseY > 500) {
                 return;
             }
             var cannonY = $('.shooter').offset().top;
@@ -64,11 +64,11 @@ BubbleShoot.Game = (function ($) {
 
 
 
-            var bubbleDX = 899 + Math.sin(angle * Math.PI / 180) * 200;
-            var bubbleDY = 899 - Math.cos(angle * Math.PI / 180) * 200;
-//            console.log('bubbleDX: ' + mouseX);
-//            console.log('bubbleDY: ' + mouseY);
-            console.log(mouseY);
+            var bubbleDX = 899 + Math.sin(angle * Math.PI / 180) * 210;
+            var bubbleDY = 899 - Math.cos(angle * Math.PI / 180) * 210;
+            //            console.log('bubbleDX: ' + mouseX);
+            //            console.log('bubbleDY: ' + mouseY);
+            //            console.log(mouseY);
 
             rotateBubble(bubbleDX, bubbleDY, angle);
 
@@ -79,21 +79,20 @@ BubbleShoot.Game = (function ($) {
             $(".playButton").unbind('click');
             numberOfBubbles = MAX_BUBBLES - level * 5;
             BubbleShoot.ui.hideDialog();
+            $(window).on('mousemove', trackMouse);
+            $(window).on('mousemove', handleMouseMovement);
+            BubbleShoot.Board.findColumnNumber;
             currentBubble = getNextBubble();
             board = new BubbleShoot.Board();
             BubbleShoot.ui.drawBoard(board);
-            $("#game").on('click', clickGameScreen);
+            $("#game").on('mouseup', clickGameScreen);
             BubbleShoot.ui.drawScore(score);
             BubbleShoot.ui.drawLevel(level);
 
         };
         var getNextBubble = function () {
             var bubble = BubbleShoot.Bubble.create();
-            trackBubble(lastMouseX, lastMouseY);
-            $(window).on('mousemove', trackMouse);
-            $(window).on('mousemove', handleMouseMovement);
             bubble.getSprite().addClass("currentBubble");
-
             $("#board").append(bubble.getSprite());
             BubbleShoot.ui.drawBubblesRemaining(numberOfBubbles);
             numberOfBubbles--;
@@ -111,17 +110,6 @@ BubbleShoot.Game = (function ($) {
                 var group = board.getGroup(currentBubble, {});
                 if (group.list.length >= 3) {
                     popBubbles(group.list, duration);
-                    // var topRow = board.getRows()[0];
-                    // var topRowBubbles = [];
-                    // for (var i =0; i < topRow.length; i++){
-                    //   if(topRow[i]){
-                    //     topRowBubbles.push(topRow[i]);
-                    //   }
-                    // };
-                    // if(topRowBubbles.length <= 5){
-                    //   popBubbles(topRowBubbles,duration);
-                    //   group.list.concat(topRowBubbles);
-                    // };
                     var orphans = board.findOrphans();
                     var delay = duration + 200 + 30 * group.list.length;
                     dropBubbles(orphans, delay);
