@@ -51,9 +51,6 @@ BubbleShoot.Game = (function ($) {
             if (mouseX < 200) {
                 return;
             }
-            if (mouseY > 500) {
-                return;
-            }
             var cannonY = $('.shooter').offset().top;
             var cannonLeft = $('.shooter').offset().left;
             var angle = Math.atan((mouseX - cannonLeft) /
@@ -80,12 +77,12 @@ BubbleShoot.Game = (function ($) {
             numberOfBubbles = MAX_BUBBLES - level * 5;
             BubbleShoot.ui.hideDialog();
             $(window).on('mousemove', trackMouse);
-            $(window).on('mousemove', handleMouseMovement);
+            $(window).on('mousemove touchmove', handleMouseMovement);
             BubbleShoot.Board.findColumnNumber;
             currentBubble = getNextBubble();
             board = new BubbleShoot.Board();
             BubbleShoot.ui.drawBoard(board);
-            $("#game").on('mouseup', clickGameScreen);
+            $("#game").on('mouseup touchend', clickGameScreen);
             BubbleShoot.ui.drawScore(score);
             BubbleShoot.ui.drawLevel(level);
 
