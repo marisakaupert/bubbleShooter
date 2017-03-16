@@ -5,20 +5,24 @@ BubbleShoot.Game = (function ($) {
         var board;
         var numberOfBubbles;
         var MAX_BUBBLES = 70;
-        var POINTS_PER_BUBBLE = 50;
+        var POINTS_PER_BUBBLE = 1;
         var MAX_ROWS = 50;
         var level = 0;
         var score = 0;
         var highScore = 0;
+        var lastMouseX;
+        var lastMouseY;
 
         this.init = function () {
             $(".playButton").bind('click', startGame);
-
-
         };
+
         var trackMouse = function (e) {
             var mouseX = e.clientX;
             var mouseY = e.clientY;
+            if (mouseY > 700) {
+                return;
+            }
             var halfTheScreenX = $(window).width() / 2;
             var halfTheScreenY = $(window).height() / 2;
             var cannonY = $('.shooter').offset().top;
@@ -29,12 +33,45 @@ BubbleShoot.Game = (function ($) {
                 angle += 180 / Math.PI;
             }
 
-            var bubbleDX = 810 + Math.sin(angle * Math.PI / 180) * 200;
-            var bubbleDY = 860 - Math.cos(angle * Math.PI / 180) * 200;
-
-
             rotateCannon(angle);
-            // rotateBubble(bubbleDX, bubbleDY, angle);
+        }
+
+        var handleMouseMovement = function (e) {
+            lastMouseX = e.clientX;
+            lastMouseY = e.clientY;
+            trackBubble(e.clientX, e.clientY);
+        }
+
+        var trackBubble = function (x, y) {
+            var mouseX = x;
+            var mouseY = y;
+            if (mouseX > 1700) {
+                return;
+            }
+            if (mouseX < 200) {
+                return;
+            }
+            if (mouseY > 580) {
+                return;
+            }
+            var cannonY = $('.shooter').offset().top;
+            var cannonLeft = $('.shooter').offset().left;
+            var angle = Math.atan((mouseX - cannonLeft) /
+                (cannonY - mouseY)) * 180 / Math.PI;
+            if (mouseY > cannonY) {
+                angle += 180 / Math.PI;
+            }
+
+
+
+            var bubbleDX = 899 + Math.sin(angle * Math.PI / 180) * 200;
+            var bubbleDY = 899 - Math.cos(angle * Math.PI / 180) * 200;
+//            console.log('bubbleDX: ' + mouseX);
+//            console.log('bubbleDY: ' + mouseY);
+            console.log(mouseY);
+
+            rotateBubble(bubbleDX, bubbleDY, angle);
+
 
         }
 
@@ -45,7 +82,6 @@ BubbleShoot.Game = (function ($) {
             currentBubble = getNextBubble();
             board = new BubbleShoot.Board();
             BubbleShoot.ui.drawBoard(board);
-            $(window).on('mousemove', trackMouse);
             $("#game").on('click', clickGameScreen);
             BubbleShoot.ui.drawScore(score);
             BubbleShoot.ui.drawLevel(level);
@@ -53,7 +89,11 @@ BubbleShoot.Game = (function ($) {
         };
         var getNextBubble = function () {
             var bubble = BubbleShoot.Bubble.create();
+            trackBubble(lastMouseX, lastMouseY);
+            $(window).on('mousemove', trackMouse);
+            $(window).on('mousemove', handleMouseMovement);
             bubble.getSprite().addClass("currentBubble");
+
             $("#board").append(bubble.getSprite());
             BubbleShoot.ui.drawBubblesRemaining(numberOfBubbles);
             numberOfBubbles--;
@@ -118,33 +158,35 @@ BubbleShoot.Game = (function ($) {
         };
 
         var rotateCannon = function (degrees) {
-            if (degrees >= 80) {
-                degrees = 80;
+            if (degrees >= 63) {
+                degrees = 63;
             }
-            if (degrees <= -80) {
-                degrees = -80;
+            if (degrees <= -63) {
+                degrees = -63;
             }
+
 
             $(".shooter").css({
                 "transform": "translateX(-50%) rotate(" + degrees + "deg)"
             });
         }
 
-        var rotateBubble = function (e, x, y, angle) {
-            var mouseY = e.clientY;
-            if (angle >= 40 || mouseY < 40) {
-                x = 963;
-                y = 731;
+        var rotateBubble = function (x, y, angle) {
+            if (angle >= 63) {
+                x = 700;
+                y = 900;
             }
-            if (angle <= -40 || mouseY < 40) {
-                x = 623;
-                y = 790;
+            if (angle <= -63) {
+                x = 200;
+                y = 900;
             }
 
-            $('.currentBubble').css({
+
+            $('.currentBubble:last').css({
                 left: x,
                 top: y
             });
+
         }
 
         var popBubbles = function (bubbles, delay) {

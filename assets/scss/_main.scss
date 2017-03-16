@@ -20,8 +20,9 @@ body {
 #board {
     position: absolute;
     top: 0;
+    left: 10px;
     height: 780px;
-    width: 1920px;
+    width: 1856px;
 }
 
 .background {
@@ -63,7 +64,6 @@ body {
     transform: translateX(-50%);
     bottom: 0;
     transform-origin: center bottom;
-    // animation: rotation infinite 2s;
 }
 
 .base {
@@ -86,7 +86,6 @@ body {
     left: 645px;
     top: 150px;
     position: absolute;
-    z-index: 10;
     animation: float 4s infinite ease-in-out;
 }
 
