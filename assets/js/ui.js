@@ -2,7 +2,7 @@ var BubbleShoot = window.BubbleShoot || {};
 BubbleShoot.ui = (function ($) {
     var ui = {
         BUBBLE_DIMENSIONS: 100,
-        ROW_HEIGHT: 115,
+        ROW_HEIGHT: 95,
         init: function () {},
         hideDialog: function () {
             $(".dialog").fadeOut(300);
