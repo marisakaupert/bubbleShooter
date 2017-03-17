@@ -45,12 +45,6 @@ BubbleShoot.Game = (function ($) {
         var trackBubble = function (x, y) {
             var mouseX = x;
             var mouseY = y;
-            if (mouseX > 1700) {
-                return;
-            }
-            if (mouseX < 200) {
-                return;
-            }
             var cannonY = $('.shooter').offset().top;
             var cannonLeft = $('.shooter').offset().left;
             var angle = Math.atan((mouseX - cannonLeft) /
@@ -61,11 +55,8 @@ BubbleShoot.Game = (function ($) {
 
 
 
-            var bubbleDX = 899 + Math.sin(angle * Math.PI / 180) * 210;
-            var bubbleDY = 899 - Math.cos(angle * Math.PI / 180) * 210;
-            //            console.log('bubbleDX: ' + mouseX);
-            //            console.log('bubbleDY: ' + mouseY);
-            //            console.log(mouseY);
+            var bubbleDX = 899 + Math.sin(angle * Math.PI / 180) * 200;
+            var bubbleDY = 899 - Math.cos(angle * Math.PI / 180) * 200;
 
             rotateBubble(bubbleDX, bubbleDY, angle);
 
@@ -76,15 +67,16 @@ BubbleShoot.Game = (function ($) {
             $(".playButton").unbind('click');
             numberOfBubbles = MAX_BUBBLES - level * 5;
             BubbleShoot.ui.hideDialog();
-//            $(window).on('mousemove', trackMouse);
-//            $(window).on('mousemove touchmove', handleMouseMovement);
-            BubbleShoot.Board.findColumnNumber;
+            //            $(window).on('mousemove', trackMouse);
+            //            $(window).on('mousemove', handleMouseMovement);
             currentBubble = getNextBubble();
             board = new BubbleShoot.Board();
             BubbleShoot.ui.drawBoard(board);
             $("#game").on('click', clickGameScreen);
+
             BubbleShoot.ui.drawScore(score);
             BubbleShoot.ui.drawLevel(level);
+
 
         };
         var getNextBubble = function () {
@@ -139,7 +131,6 @@ BubbleShoot.Game = (function ($) {
                 currentBubble = getNextBubble();
             }
 
-
         };
 
         var rotateCannon = function (degrees) {
@@ -168,8 +159,7 @@ BubbleShoot.Game = (function ($) {
 
 
             $('.currentBubble:last').css({
-                left: x,
-                top: y
+                "transform": "translateX(" + x + "px) translateY(" + y + "px)"
             });
 
         }

@@ -20,7 +20,7 @@ body {
 #board {
     position: absolute;
     top: 0;
-    left: 10px;
+    left: 20px;
     height: 780px;
     width: 1856px;
 }
@@ -59,11 +59,27 @@ body {
 
 .shooter {
     position: absolute;
-    height: 200px;
+//    height: 333px;
+//    width: 236px;
+    height: 296px;
+    width: 236px;
     left: 50%;
     transform: translateX(-50%);
     bottom: 0;
     transform-origin: center bottom;
+    z-index: 2000000;
+    background-image: url("../images/cannonSprite9.png");
+}
+
+.firingCannon {
+//    animation: shootCannon .8s steps(30);
+    animation: shootCannon .8s steps(15);
+}
+
+@keyframes shootCannon {
+    100% {
+        background-position: -3562px;
+    }
 }
 
 .base {

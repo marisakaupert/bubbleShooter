@@ -94,12 +94,6 @@ BubbleShoot.Board = (function ($) {
             return rowLength;
         }
         
-        this.findColumnNumber = function() {
-            var columnNumber = coordinates.x / BubbleShoot.ui.BUBBLE_DIMENSIONS * 2;
-            console.log(columnNumber);
-            return columnNumber;
-        }
-        
         this.findOrphans = function () {
             var connected = [];
             var groups = [];

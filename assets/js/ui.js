@@ -6,7 +6,7 @@ BubbleShoot.ui = (function ($) {
         init: function () {},
         hideDialog: function () {
             $(".dialog").fadeOut(300);
-//            $("#page").css("background-color", "rgba(205, 21, 63, 0.0)");
+            //            $("#page").css("background-color", "rgba(205, 21, 63, 0.0)");
         },
         drawScore: function (score) {
             $("#score").text(score);
@@ -41,6 +41,8 @@ BubbleShoot.ui = (function ($) {
         },
         fireBubble: function (bubble, coordinates, duration) {
             bubble.setState(BubbleShoot.BubbleState.FIRING);
+            $('.shooter').addClass('firingCannon');
+
             bubble.getSprite().animate({
                 left: coordinates.x - ui.BUBBLE_DIMENSIONS / 2,
                 top: coordinates.y - ui.BUBBLE_DIMENSIONS / 2
@@ -59,6 +61,11 @@ BubbleShoot.ui = (function ($) {
                     };
                 }
             });
+            setTimeout(function () {
+                $('.shooter').removeClass('firingCannon');
+            }, 800);
+
+
         },
         drawBoard: function (board) {
             var rows = board.getRows();
