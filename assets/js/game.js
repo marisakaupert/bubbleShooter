@@ -108,19 +108,6 @@ BubbleShoot.Game = (function ($) {
                 var group = board.getGroup(currentBubble, {});
                 if (group.list.length >= 3) {
                     popBubbles(group.list, duration);
-                    var topRow = board.getRows()[0];
-                    var secondRow = board.getRows()[1];
-                    var topRowBubbles = [];
-                    for (var i = 0; i < topRow.length; i++) {
-                        if (topRow[i]) {
-                            topRowBubbles.push(topRow[i]);
-                        }
-                    };
-
-                    if (topRowBubbles.length <= 5) {
-                        popBubbles(topRowBubbles, duration);
-                        group.list.concat(topRowBubbles);
-                    }
                     var orphans = board.findOrphans();
                     var delay = duration + 200 + 30 * group.list.length;
                     dropBubbles(orphans, delay);
