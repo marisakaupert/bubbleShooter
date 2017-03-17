@@ -17,25 +17,25 @@ BubbleShoot.Game = (function ($) {
             $(".playButton").bind('click', startGame);
         };
 
-        var trackMouse = function (e) {
-            var mouseX = e.clientX;
-            var mouseY = e.clientY;
-            if (mouseY > 700) {
-                return;
-            }
-            var halfTheScreenX = $(window).width() / 2;
-            var halfTheScreenY = $(window).height() / 2;
-            var cannonY = $('.shooter').offset().top;
-            var cannonLeft = $('.shooter').offset().left;
-            var angle = Math.atan((mouseX - cannonLeft) /
-                (cannonY - mouseY)) * 180 / Math.PI;
-            if (mouseY > cannonY) {
-                angle += 180 / Math.PI;
-            }
-
-
-            //            rotateCannon(angle);
-        }
+//        var trackMouse = function (e) {
+//            var mouseX = e.clientX;
+//            var mouseY = e.clientY;
+//            if (mouseY > 700) {
+//                return;
+//            }
+//            var halfTheScreenX = $(window).width() / 2;
+//            var halfTheScreenY = $(window).height() / 2;
+//            var cannonY = $('.shooter').offset().top;
+//            var cannonLeft = $('.shooter').offset().left;
+//            var angle = Math.atan((mouseX - cannonLeft) /
+//                (cannonY - mouseY)) * 180 / Math.PI;
+//            if (mouseY > cannonY) {
+//                angle += 180 / Math.PI;
+//            }
+//
+//
+//            rotateCannon(angle);
+//        }
 
         var handleMouseMovement = function (e) {
             lastMouseX = e.clientX;
@@ -43,31 +43,29 @@ BubbleShoot.Game = (function ($) {
             trackBubble(e.clientX, e.clientY);
         }
 
-        var trackBubble = function (x, y) {
-            var mouseX = x;
-            var mouseY = y;
-            var cannonY = $('.shooter').offset().top;
-            var cannonLeft = $('.shooter').offset().left;
-            var angle = Math.atan((mouseX - cannonLeft) /
-                (cannonY - mouseY)) * 180 / Math.PI;
-            if (mouseY > cannonY) {
-                angle += 180 / Math.PI;
-            }
-
-
-            var bubbleDX = 899 + Math.sin(angle * Math.PI / 180) * 200;
-            var bubbleDY = 899 - Math.cos(angle * Math.PI / 180) * 200;
-
-            rotateBubble(bubbleDX, bubbleDY, angle);
-
-        }
+//        var trackBubble = function (x, y) {
+//            var mouseX = x;
+//            var mouseY = y;
+//            var cannonY = $('.shooter').offset().top;
+//            var cannonLeft = $('.shooter').offset().left;
+//            var angle = Math.atan((mouseX - cannonLeft) /
+//                (cannonY - mouseY)) * 180 / Math.PI;
+//            if (mouseY > cannonY) {
+//                angle += 180 / Math.PI;
+//            }
+//
+//
+//            var bubbleDX = 899 + Math.sin(angle * Math.PI / 180) * 200;
+//            var bubbleDY = 899 - Math.cos(angle * Math.PI / 180) * 200;
+//
+//            rotateBubble(bubbleDX, bubbleDY, angle);
+//
+//        }
 
         var startGame = function () {
             $(".playButton").unbind('click');
             numberOfBubbles = MAX_BUBBLES - level * 5;
             BubbleShoot.ui.hideDialog();
-            $(window).on('mousemove', trackMouse);
-            //            $(window).on('mousemove', handleMouseMovement);
             currentBubble = getNextBubble();
             board = new BubbleShoot.Board();
             BubbleShoot.ui.drawBoard(board);
@@ -91,11 +89,11 @@ BubbleShoot.Game = (function ($) {
             var duration = 750;
             var distance = 1000;
             var collision = BubbleShoot.CollisionDetector.findIntersection(currentBubble, board, angle);
-            var coordinates = {
-                left: BubbleShoot.Bubble.getColumn * BubbleShoot.ui.BUBBLE_DIMENSIONS / 2 + BubbleShoot.ui.BUBBLE_DIMENSIONS / 2,
-                top: BubbleShoot.Bubble.getRow * BubbleShoot.ui.ROW_HEIGHT + BubbleShoot.ui.BUBBLE_DIMENSIONS / 2
-            };
-                            console.log(collision);
+            var rowLength = board.findRowLength();
+            
+            var topRow = board.getRows()[0];
+            console.log(topRow);
+
 
             if (collision == null) {
                 return;
@@ -135,44 +133,42 @@ BubbleShoot.Game = (function ($) {
                 endGame(false);
             } else if (numberOfBubbles == 0) {
                 endGame(false);
-            } else if (board.isEmpty()) {
-                endGame(true);
             } else {
                 currentBubble = getNextBubble();
             }
 
         };
 
-        var rotateCannon = function (degrees) {
-            if (degrees >= 63) {
-                degrees = 63;
-            }
-            if (degrees <= -63) {
-                degrees = -63;
-            }
-
-
-            $(".shooter").css({
-                "transform": "translateX(-50%) rotate(" + degrees + "deg)"
-            });
-        }
-
-        var rotateBubble = function (x, y, angle) {
-            if (angle >= 63) {
-                x = 700;
-                y = 900;
-            }
-            if (angle <= -63) {
-                x = 200;
-                y = 900;
-            }
-
-
-            $('.currentBubble:last').css({
-                "transform": "translateX(" + x + "px) translateY(" + y + "px)"
-            });
-
-        }
+//        var rotateCannon = function (degrees) {
+//            if (degrees >= 63) {
+//                degrees = 63;
+//            }
+//            if (degrees <= -63) {
+//                degrees = -63;
+//            }
+//
+//
+//            $(".shooter").css({
+//                "transform": "translateX(-50%) rotate(" + degrees + "deg)"
+//            });
+//        }
+//
+//        var rotateBubble = function (x, y, angle) {
+//            if (angle >= 63) {
+//                x = 700;
+//                y = 900;
+//            }
+//            if (angle <= -63) {
+//                x = 200;
+//                y = 900;
+//            }
+//
+//
+//            $('.currentBubble:last').css({
+//                "transform": "translateX(" + x + "px) translateY(" + y + "px)"
+//            });
+//
+//        }
 
         var popBubbles = function (bubbles, delay) {
             $.each(bubbles, function () {
