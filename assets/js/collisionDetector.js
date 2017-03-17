@@ -25,7 +25,7 @@ BubbleShoot.CollisionDetector = (function ($) {
                         var eX = -t * dX + start.left;
                         var eY = -t * dY + start.top;
                         var distanceEC = Math.sqrt((eX - coordinates.left) * (eX - coordinates.left) + (eY - coordinates.top) * (eY - coordinates.top));
-                        if (distanceEC < BubbleShoot.ui.BUBBLE_DIMENSIONS * 0.75){
+                        if (distanceEC < BubbleShoot.ui.BUBBLE_DIMENSIONS * .75){
                             var dT = Math.sqrt(BubbleShoot.ui.BUBBLE_DIMENSIONS * BubbleShoot.ui.BUBBLE_DIMENSIONS - distanceEC * distanceEC);
                             var offset1 = {
                                 x : (t-dT) * dX,

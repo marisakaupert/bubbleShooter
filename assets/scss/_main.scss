@@ -8,9 +8,16 @@ body {
     ;
 }
 
+#clickableArea {
+    position: absolute;
+    height: 700px;
+    width: 1920px;
+        background-color: rgba(205, 21, 63, 0.2);
+}
+
 #page {
     position: absolute;
-    background-color: rgba(205, 21, 63, 0.2);
+
     top: 0;
     left: 0;
     height: 1080px;
@@ -20,9 +27,9 @@ body {
 #board {
     position: absolute;
     top: 0;
-    left: 20px;
+    left: 10px;
     height: 780px;
-    width: 1856px;
+    width: 1920px;
 }
 
 .background {
@@ -39,7 +46,7 @@ body {
 
 #game {
     height: 970px;
-    width: 1900px;
+    width: 1920px;
     left: 50%;
     transform: translateX(-50%);
     // background-color: rgba(248,248,248,0.5);
@@ -61,24 +68,24 @@ body {
     position: absolute;
 //    height: 333px;
 //    width: 236px;
-    height: 296px;
-    width: 236px;
+    height: 230px;
+    width: 180px;
     left: 50%;
     transform: translateX(-50%);
     bottom: 0;
     transform-origin: center bottom;
     z-index: 2000000;
-    background-image: url("../images/cannonSprite9.png");
+    background-image: url("../images/cannonSprite10.png");
 }
 
 .firingCannon {
 //    animation: shootCannon .8s steps(30);
-    animation: shootCannon .8s steps(15);
+    animation: shootCannon .5s steps(15);
 }
 
 @keyframes shootCannon {
     100% {
-        background-position: -3562px;
+        background-position: -2734px;
     }
 }
 

@@ -1,7 +1,7 @@
 var BubbleShoot = window.BubbleShoot || {};
 BubbleShoot.Board = (function ($) {
     var NUM_ROWS = 3;
-    var NUM_COLUMNS = 36;
+    var NUM_COLUMNS = 35;
     var Board = function () {
         var that = this;
         this.isEmpty = function () {
@@ -41,7 +41,6 @@ BubbleShoot.Board = (function ($) {
             rows[rowNumber][columnNumber] = bubble;
             bubble.setRow(rowNumber);
             bubble.setColumn(columnNumber);
-            
         };
         this.getBubbleAt = function (rowNumber, columnNumber) {
             if (!this.getRows()[rowNumber]) {
@@ -88,12 +87,12 @@ BubbleShoot.Board = (function ($) {
             var row = rows[rowNumber];
             delete row[columnNumber];
         };
-        
+
         this.findRowLength = function () {
             var rowLength = rows.length;
             return rowLength;
         }
-        
+
         this.findOrphans = function () {
             var connected = [];
             var groups = [];

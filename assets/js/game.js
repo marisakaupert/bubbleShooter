@@ -9,9 +9,9 @@ BubbleShoot.Game = (function ($) {
         var MAX_ROWS = 50;
         var level = 0;
         var score = 0;
-        var highScore = 0;
         var lastMouseX;
         var lastMouseY;
+        var curBubbleLeft = $('.bubble').find().left;
 
         this.init = function () {
             $(".playButton").bind('click', startGame);
@@ -33,7 +33,8 @@ BubbleShoot.Game = (function ($) {
                 angle += 180 / Math.PI;
             }
 
-            rotateCannon(angle);
+
+            //            rotateCannon(angle);
         }
 
         var handleMouseMovement = function (e) {
@@ -54,12 +55,10 @@ BubbleShoot.Game = (function ($) {
             }
 
 
-
             var bubbleDX = 899 + Math.sin(angle * Math.PI / 180) * 200;
             var bubbleDY = 899 - Math.cos(angle * Math.PI / 180) * 200;
 
             rotateBubble(bubbleDX, bubbleDY, angle);
-
 
         }
 
@@ -67,7 +66,7 @@ BubbleShoot.Game = (function ($) {
             $(".playButton").unbind('click');
             numberOfBubbles = MAX_BUBBLES - level * 5;
             BubbleShoot.ui.hideDialog();
-            //            $(window).on('mousemove', trackMouse);
+            $(window).on('mousemove', trackMouse);
             //            $(window).on('mousemove', handleMouseMovement);
             currentBubble = getNextBubble();
             board = new BubbleShoot.Board();
@@ -92,13 +91,36 @@ BubbleShoot.Game = (function ($) {
             var duration = 750;
             var distance = 1000;
             var collision = BubbleShoot.CollisionDetector.findIntersection(currentBubble, board, angle);
+            var coordinates = {
+                left: BubbleShoot.Bubble.getColumn * BubbleShoot.ui.BUBBLE_DIMENSIONS / 2 + BubbleShoot.ui.BUBBLE_DIMENSIONS / 2,
+                top: BubbleShoot.Bubble.getRow * BubbleShoot.ui.ROW_HEIGHT + BubbleShoot.ui.BUBBLE_DIMENSIONS / 2
+            };
+                            console.log(collision);
+
+            if (collision == null) {
+                return;
+            }
             if (collision) {
                 var coordinates = collision.coordinates;
                 duration = Math.round(duration * collision.distanceToCollision / distance);
                 board.addBubble(currentBubble, coordinates);
+
                 var group = board.getGroup(currentBubble, {});
                 if (group.list.length >= 3) {
                     popBubbles(group.list, duration);
+                    var topRow = board.getRows()[0];
+                    var secondRow = board.getRows()[1];
+                    var topRowBubbles = [];
+                    for (var i = 0; i < topRow.length; i++) {
+                        if (topRow[i]) {
+                            topRowBubbles.push(topRow[i]);
+                        }
+                    };
+
+                    if (topRowBubbles.length <= 5) {
+                        popBubbles(topRowBubbles, duration);
+                        group.list.concat(topRowBubbles);
+                    }
                     var orphans = board.findOrphans();
                     var delay = duration + 200 + 30 * group.list.length;
                     dropBubbles(orphans, delay);
@@ -118,6 +140,7 @@ BubbleShoot.Game = (function ($) {
                     y: bubbleCoordinates.top - distanceY
                 };
             };
+
 
             BubbleShoot.ui.fireBubble(currentBubble, coordinates, duration);
             var rowLength = board.findRowLength();

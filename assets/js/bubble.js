@@ -48,6 +48,7 @@ BubbleShoot.Bubble = (function ($) {
                 left: that.getColumn() * BubbleShoot.ui.BUBBLE_DIMENSIONS / 2 + BubbleShoot.ui.BUBBLE_DIMENSIONS / 2,
                 top: that.getRow() * BubbleShoot.ui.ROW_HEIGHT + BubbleShoot.ui.BUBBLE_DIMENSIONS / 2
             };
+//            console.log(coordinates);
             return coordinates;
         }
         this.animatePop = function () {

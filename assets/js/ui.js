@@ -2,11 +2,10 @@ var BubbleShoot = window.BubbleShoot || {};
 BubbleShoot.ui = (function ($) {
     var ui = {
         BUBBLE_DIMENSIONS: 100,
-        ROW_HEIGHT: 100,
+        ROW_HEIGHT: 115,
         init: function () {},
         hideDialog: function () {
             $(".dialog").fadeOut(300);
-            //            $("#page").css("background-color", "rgba(205, 21, 63, 0.0)");
         },
         drawScore: function (score) {
             $("#score").text(score);
@@ -31,7 +30,7 @@ BubbleShoot.ui = (function ($) {
             var mouseCoordinates = ui.getMouseCoordinates(e);
             var bubbleCoordinates = ui.getBubbleCoordinates(bubble);
             var gameCoordinates = $("#game").position();
-            var boardLeft = 240;
+            var boardLeft = 10;
             var angle = Math.atan((mouseCoordinates.x - bubbleCoordinates.left - boardLeft) /
                 (bubbleCoordinates.top + gameCoordinates.top - mouseCoordinates.y));
             if (mouseCoordinates.y > bubbleCoordinates.top + gameCoordinates.top) {
@@ -42,7 +41,6 @@ BubbleShoot.ui = (function ($) {
         fireBubble: function (bubble, coordinates, duration) {
             bubble.setState(BubbleShoot.BubbleState.FIRING);
             $('.shooter').addClass('firingCannon');
-
             bubble.getSprite().animate({
                 left: coordinates.x - ui.BUBBLE_DIMENSIONS / 2,
                 top: coordinates.y - ui.BUBBLE_DIMENSIONS / 2
@@ -63,7 +61,7 @@ BubbleShoot.ui = (function ($) {
             });
             setTimeout(function () {
                 $('.shooter').removeClass('firingCannon');
-            }, 800);
+            }, 500);
 
 
         },
