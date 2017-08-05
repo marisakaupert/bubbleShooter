@@ -1,0 +1,48 @@
+.bubble {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background-image: url("../_img/bubbleSpriteSheet3.png");
+    z-index: 100000;
+}
+
+.cur_bubble {
+    left: 790px;
+    top: 590px;
+}
+
+.pacing {
+    animation: planetsFloating 3s ease infinite;
+}
+
+@keyframes planetsFloating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(17px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.bubble_0 {
+    background-position: 0 0;
+}
+
+.bubble_1 {
+    background-position: 0 -100px;
+}
+
+.bubble_2 {
+    background-position: 0 -200px;
+}
+
+.bubble_3 {
+    background-position: 0 -300px;
+}
+
+.bubble_4 {
+    background-position: 0 -400px;
+}
