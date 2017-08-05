@@ -1,19 +1,21 @@
 {
-  "name": "project-name",
+  "name": "bubble-shooter",
   "version": "1.0.0",
-  "description": "Description here",
-  "main": "gulpfile.js",
-  "author": "your-name",
+  "description": "Basic bubble shooter game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.0.0",
-    "gulp-sass": "^2.3.2",
-    "gulp-sourcemaps": "^1.11.1",
-    "gulp-uglify": "^1.5.4"
+    "modernizr": "^3.3.1"
   },
-  "engines": {
-    "node": "6.9.2"
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }

@@ -1,27 +1,95 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>Bubble Shooter</title>
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="assets/fonts/Nasalization/stylesheet.css" type="text/css" charset="utf-8" />
-    <link rel="stylesheet" href="assets/fonts/Rainfall/stylesheet.css" type="text/css" charset="utf-8" />
-    
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <link rel="stylesheet" href="_css/main.css">
+    <link rel="stylesheet" href="_css/game.css">
+    <link rel="stylesheet" href="_css/Nasalization/stylesheet.css">
+    <link rel="stylesheet" href="_css/Rainfall/stylesheet.css">
 
 </head>
 
 <body>
-   <h1>Test</h1>
+    <div id="page">
+        <div id="top_bar">
+            <h1>Remaining Ammo:</h1>
+            <h2 id="bubbles_remaining">70</h2>
+            <h3>Planets Destroyed:</h2>
+            <h4 id="score">0</h4>
+            <a class="but_exit button exit_during_game" href="../">
+                Exit
+            </a>
 
-   
+        </div>
+        <div id="game">
+            <div id="board"></div>
+        </div>
+        <div id="footer_bar"></div>
+
+        <div id="start_game">
+           <img class="dialog" src="_img/frontScreen.png">
+            <div class="but_start_game button">
+                Play
+            </div>
+            <a class="but_start_game button exit_start_but" href="../">
+                Exit
+            </a>
+        </div>
+        
+          <div id="end_game">
+           <img class="dialog" src="_img/endScreen.png">
+           <h1>Score:</h1>
+           <h2>0</h2>
+            <div class="but_play_again button">
+                Play Again
+            </div>
+            <a class="but_exit button" href="../">
+                Exit
+            </a>
+        </div>
+        
+        <div id="next_level">
+           <img class="dialog" src="_img/levelCompleteScreen.png">
+           <h1>Score:</h1>
+           <h2>0</h2>
+            <div class="but_play_again button">
+                Next Level
+            </div>
+            <a class="but_exit button" href="../">
+                Exit
+            </a>
+        </div>
+        
+        <h1 class="instructions">Clear most of the board to move to the next level!</h1>
+        
+        <img class="charlie" src="_img/charlie.png">
+        <img class="shadow" src="_img/shadow.png">
+        <img class="cannon" src="_img/cannon.png">
+        <img class="base" src="_img/base.png">
+        <img class="land" src="_img/land.png">
+    </div>
 </body>
 
-<script src="assets/js/jquery-3.1.1.min.js"></script>
-<script src="assets/js/jquery-ui.min.js"></script>
-
-
-
-
+<script src="_js/modernizr-custom.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+</script>
+<script src="_js/bubble.js"></script>
+<script src="_js/ui.js"></script>
+<script src="_js/board.js"></script>
+<script src="_js/collision-detector.js"></script>
+<script src="_js/jquery.kaboom.js"></script>
+<script src="_js/game.js"></script>
+<script type="text/javascript">
+    console.log("Starting the game");
+    $(function () {
+        var game = new BubbleShoot.Game();
+        game.init();
+        
+    });
+</script>
+<script src="timer.js"></script>
 
 </html>
