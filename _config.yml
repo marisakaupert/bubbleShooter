@@ -10,5 +10,5 @@
 #
 theme: jekyll-theme-minimal
 
-baseurl: /bubbleShooter
+baseurl: "/bubbleShooter"
 name: A Bubble Shooter
