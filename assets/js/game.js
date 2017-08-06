@@ -33,7 +33,7 @@ BubbleShoot.Game = (function ($) {
             BubbleShoot.ui.drawBubblesRemaining(numBubbles);
             numBubbles--;
             BubbleShoot.ui.drawScore(score);
-            
+
             return bubble;
         };
 
