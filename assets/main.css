@@ -9,8 +9,8 @@
 
 @font-face {
     font-family: 'rainfallblack';
-    src: url('{{ site.github.baseurl }}/assets/fonts/rainfall-webfont.woff2') format('woff2'),
-         url('{{ site.github.baseurl }}/assets/fonts/rainfall-webfont.woff') format('woff');
+    src: url('fonts/rainfall-webfont.woff2') format('woff2'),
+         url('fonts/rainfall-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -27,7 +27,7 @@ body {
   top: 0;
   width: 1920px;
   height: 1080px;
-  background-image: url('{{ site.github.baseurl }}/assets/background.png');
+  background-image: url('assets/background.png');
 }
 
 #top_bar {
