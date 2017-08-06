@@ -32,8 +32,9 @@ BubbleShoot.Game = (function ($) {
             $("#board").append(bubble.getSprite());
             BubbleShoot.ui.drawBubblesRemaining(numBubbles);
             numBubbles--;
-            return bubble;
             BubbleShoot.ui.drawScore(score);
+            
+            return bubble;
         };
 
         var clickGameScreen = function (e) {
@@ -120,7 +121,7 @@ BubbleShoot.Game = (function ($) {
         var endGame = function (hasWon) {
             BubbleShoot.ui.endGame(hasWon, score);
             $('.but_play_again').on('click', startGame);
-            
+
             if (hasWon) {
                 level++;
             } else {
