@@ -1,6 +1,6 @@
 var startCount = function() {
     return setTimeout(function () {
-        window.location.href = '../';        
+        window.location.href = 'http://marisakaupert.com/bubbleShooter/';        
     }, 60000000);
 }
 
@@ -10,4 +10,3 @@ window.addEventListener('click', function () {
     clearTimeout(startCount);
     startCount();
 });
-
