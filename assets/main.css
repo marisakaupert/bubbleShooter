@@ -27,7 +27,7 @@ body {
   top: 0;
   width: 1920px;
   height: 1080px;
-  background-image: url('assets/background.png');
+  background-image: url('background.png');
 }
 
 #top_bar {
