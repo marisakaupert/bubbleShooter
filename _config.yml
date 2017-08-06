@@ -1,12 +1,12 @@
-github: [metadata]
-encoding: UTF-8
-kramdown:
-  input: GFM
-  hard_wrap: false
-gems:
-  - jekyll-coffeescript
-  - jekyll-paginate
-
-
-baseurl: /bubbleShooter
-name: A Bubble Shooter
+# github: [metadata]
+# encoding: UTF-8
+# kramdown:
+#   input: GFM
+#   hard_wrap: false
+# gems:
+#   - jekyll-coffeescript
+#   - jekyll-paginate
+#
+# 
+# baseurl: /bubbleShooter
+# name: A Bubble Shooter
