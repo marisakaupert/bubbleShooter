@@ -5,10 +5,11 @@
     <meta charset="utf-8">
     <title>Bubble Shooter</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
-    <link rel="stylesheet" href="_css/main.css">
-    <link rel="stylesheet" href="_css/game.css">
-    <link rel="stylesheet" href="_css/Nasalization/stylesheet.css">
-    <link rel="stylesheet" href="_css/Rainfall/stylesheet.css">
+    <!-- <link rel="stylesheet" href="_css/main.css"> -->
+    <link rel="stylesheet" href="{{ marisakaupert.com/bubbleShooter/ }}/_css/main.css">
+    <link rel="stylesheet" href="{{ marisakaupert.com/bubbleShooter/ }}/_css/game.css">
+    <link rel="stylesheet" href="{{ marisakaupert.com/bubbleShooter/ }}/_css/Nasalization/stylesheet.css">
+    <link rel="stylesheet" href="{{ marisakaupert.com/bubbleShooter/ }}/_css/Rainfall/stylesheet.css">
 
 </head>
 
@@ -38,7 +39,7 @@
                 Exit
             </a>
         </div>
-        
+
           <div id="end_game">
            <img class="dialog" src="_img/endScreen.png">
            <h1>Score:</h1>
@@ -50,7 +51,7 @@
                 Exit
             </a>
         </div>
-        
+
         <div id="next_level">
            <img class="dialog" src="_img/levelCompleteScreen.png">
            <h1>Score:</h1>
@@ -62,9 +63,9 @@
                 Exit
             </a>
         </div>
-        
+
         <h1 class="instructions">Clear most of the board to move to the next level!</h1>
-        
+
         <img class="charlie" src="_img/charlie.png">
         <img class="shadow" src="_img/shadow.png">
         <img class="cannon" src="_img/cannon.png">
@@ -76,18 +77,18 @@
 <script src="_js/modernizr-custom.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
 </script>
-<script src="_js/bubble.js"></script>
-<script src="_js/ui.js"></script>
-<script src="_js/board.js"></script>
-<script src="_js/collision-detector.js"></script>
-<script src="_js/jquery.kaboom.js"></script>
-<script src="_js/game.js"></script>
+<script src="{{ marisakaupert.com/bubbleShooter/ }}/_js/bubble.js"></script>
+<script src="{{ marisakaupert.com/bubbleShooter/ }}/_js/ui.js"></script>
+<script src="{{ marisakaupert.com/bubbleShooter/ }}/_js/board.js"></script>
+<script src="{{ marisakaupert.com/bubbleShooter/ }}/_js/collision-detector.js"></script>
+<script src="{{ marisakaupert.com/bubbleShooter/ }}/_js/jquery.kaboom.js"></script>
+<script src="{{ marisakaupert.com/bubbleShooter/ }}/_js/game.js"></script>
 <script type="text/javascript">
     console.log("Starting the game");
     $(function () {
         var game = new BubbleShoot.Game();
         game.init();
-        
+
     });
 </script>
 <script src="timer.js"></script>
