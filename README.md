@@ -2,4 +2,4 @@
 
 The game is playable, but the board's dimensions (1920px x 1080px) were kept. When playing the game, you may want to zoom out in your browser.
 
-Play th game here: http://marisakaupert.com/bubbleShooter/
+Play the game here: http://marisakaupert.github.io/bubbleShooter/
